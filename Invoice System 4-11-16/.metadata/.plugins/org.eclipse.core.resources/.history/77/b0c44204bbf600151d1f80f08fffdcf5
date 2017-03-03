@@ -1,0 +1,58 @@
+package InvoiceSystem;
+import java.sql.*;
+
+public class InvoiceSystemDriver {
+	private Connection conn;
+	
+	public InvoiceSystemDriver(String[] main){
+		String url = "jdbc:mysql://cse.unl.edu/cselogin";
+		String username = "skenny";
+		String password = "6tD-2P";
+		conn = null;
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			//persons creation
+			String query = "SELECT * FROM Persons";
+			PreparedStatement person = null;
+			try{
+				person = conn.prepareStatement(query);
+				
+				ResultSet rs = null;
+				try{
+					rs = person.executeQuery();
+					while(rs.next()){
+						String code = rs.getString("personCode");
+						String firstName = rs.getString("firstName");
+						String lastName = rs.getString("lastName");
+						Integer addressKey = rs.getInt("addressId");
+						String query2 = "SELECT * FROM Adresses WHERE addressId = " + addressKey;
+						PreparedStatement email = null;
+						try{
+							email = conn.prepareStatement(query);
+							ResultSet rs2 = null;
+							try{
+								rs2 = email.executeQuery();
+								while(rs2.next()){
+									
+								}
+							}
+						}
+					}
+				}
+			}
+			catch(SQLException e){
+				System.out.println("Incorrect Query");
+			}
+			
+			//product
+			
+			
+			
+		}
+		catch(SQLException e){
+			System.out.println("Incorrect username or passoword");
+		}
+		
+		
+	}
+}

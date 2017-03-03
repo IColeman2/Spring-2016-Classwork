@@ -1,0 +1,267 @@
+{
+"customers": [
+  {
+    "customerCode": "C001",
+    "name": "The New Republic",
+    "address": {
+      "street": "16016 W 83rd Terrace",
+      "city": "Lenexa",
+      "state": "KS",
+      "zip": "66219",
+      "country": "USA",
+    },
+    "primaryContact": {
+      "personCode": "g4y",
+      "firstName": "Poe",
+      "lastName": "Dameron",
+      "address": {
+        "street": "4444 Yavin Street",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60613",
+        "country": "USA",
+      },
+      "emails": [
+        "mostdaring_fighter_pilot@resistance.gov",
+      ]
+    }
+  },
+  {
+    "customerCode": "C002",
+    "name": "The First Order",
+    "address": {
+      "street": "430 N 14th St",
+      "city": "Lincoln",
+      "state": "NE",
+      "zip": "69508",
+      "country": "USA",
+    },
+    "primaryContact": {
+      "personCode": "jed1",
+      "firstName": "Luke",
+      "lastName": "Skywalker",
+      "address": {
+        "street": "4567 Jedi Temple Way",
+        "city": "Lincoln",
+        "state": "NE",
+        "zip": "68508",
+        "country": "USA",
+      },
+      "emails": [
+        "whiny_farmboy@aol.com",
+        "lskywalker@huskers.unl.edu",
+      ]
+    }
+  },
+  {
+    "customerCode": "C003",
+    "name": "The Rebellion",
+    "address": {
+      "street": "17603 T St",
+      "city": "Omaha",
+      "state": "NE",
+      "zip": "68135",
+      "country": "USA"
+    },
+    "primaryContact": {
+      "personCode": "1r1ncss",
+      "firstName": "Leia",
+      "lastName": "Organa",
+      "address": {
+        "street": "17603 T St",
+        "city": "Omaha",
+        "state": "NE",
+        "zip": "68135",
+        "country": "USA",
+      },
+      "emails": [
+		"notacommittee@resistance.gov",
+	  ]
+    }
+  },
+  {
+    "customerCode": "C004",
+    "name": "Jedi Order",
+    "address": {
+      "street": "703 Green St",
+      "city": "Westford",
+      "state": "MA",
+      "zip": "01886",
+      "country": "USA"
+    },
+    "primaryContact": {
+      "personCode": "fn2187",
+      "firstName": "Finn",
+      "lastName": "Finn",
+      "address": {
+        "street": "630 N 14th St",
+        "city": "Lincoln",
+        "state": "NE",
+        "zip": "68508",
+        "country": "USA",
+      },
+      "emails": [
+        "totally_with_the_resistance@firstorder.gov",
+		"poesbae@gmail.com",
+      ]
+    }
+  },
+  {
+    "customerCode": "C005",
+    "name": "The Old Republic",
+    "address": {
+      "street": "7518 Warren Street",
+      "city": "Soddy Daisy",
+      "state": "TN",
+      "zip": "37379",
+      "country": "USA",
+    },
+    "primaryContact": {
+      "personCode": "tr8r",
+      "firstName": "Captain",
+      "lastName": "Phasma",
+      "address": {
+        "street": "4682 Huron Hill Drive",
+        "city": "Lansing",
+        "state": "MI",
+        "zip": "48864",
+        "country": "USA",
+      },
+      "emails": [
+        "imtheboss@firstorder.gov",
+      ]
+    }
+  },
+  {
+    "customerCode": "C006",
+    "name": "The Aloha Oe",
+    "address": {
+      "street": "1465 Locust Lane",
+      "city": "Rosedale",
+      "state": "NY",
+      "zip": "11422",
+      "country": "USA",
+    },
+    "primaryContact": {
+      "personCode": "1128h",
+      "firstName": "Jessika",
+      "lastName": "Pava",
+      "address": {
+        "street": "6642 Redwood Drive",
+        "city": "Passaic",
+        "state": "NJ",
+        "zip": "07055",
+        "country": "USA",
+      },
+      "emails": [
+        "2nd_daring_pilot@resistance.gov",
+        "blueleader@yahoo.com",
+      ]
+    }
+  }
+  {
+    "customerCode": "C007",
+    "name": "The Gogol Empire",
+    "address": {
+      "street": "6346 River Street",
+      "city": "Mcminnville",
+      "state": "TN",
+      "zip": "37110",
+      "country": "USA",
+    },
+    "primaryContact": {
+      "personCode": "14nd0",
+      "firstName": "Lando",
+      "lastName": "Calrissan",
+      "address": {
+        "street": "6839 School Street",
+        "city": "Far Rockaway",
+        "state": "NY",
+        "zip": "11691",
+        "country": "USA",
+      },
+      "emails": [
+        "gottalottanerve@cse.unl.edu",
+      ]
+    }
+  }
+  {
+    "customerCode": "C008",
+    "name": "Space Alien Registration",
+    "address": {
+      "street": "736 Cobblestone Court",
+      "city": "Teaneck",
+      "state": "NJ",
+      "zip": "07666",
+      "country": "USA",
+    },
+    "primaryContact": {
+      "personCode": "123de",
+      "firstName": "Jarjar",
+      "lastName": "Binks",
+      "address": {
+        "street": "40 Plein St",
+        "city": "Capetown",
+        "state": "",
+        "zip": "8001",
+        "country": "South Africa",
+      },
+      "emails": [
+        "meesaclumsy@firstorder.gov",
+		"somehowasenator@oldrepublic.org",
+      ]
+    }
+  }
+  {
+    "customerCode": "C009",
+    "name": "State Alchemists",
+    "address": {
+      "street": "910 Sheffield Drive",
+      "city": "Ultica",
+      "state": "NY",
+      "zip": "13501",
+      "country": "USA",
+    },
+    "primaryContact": {
+      "personCode": "qu33n",
+      "firstName": "Padme",
+      "lastName": "Amidala",
+      "address": {
+        "street": "8162 Halsey St",
+        "city": "Overland Park",
+        "state": "KS",
+        "zip": "66216",
+        "country": "USA",
+      },
+      "emails": [
+        "queen14@naboo.gov",
+      ]
+    }
+  }
+  {
+    "customerCode": "C010",
+    "name": "Ishvalian Rebellion",
+    "address": {
+      "street": "597 Front Street",
+      "city": "Port Jefferson Station",
+      "state": "NY",
+      "zip": "11776",
+      "country": "USA",
+    },
+    "primaryContact": {
+      "personCode": "smljxn",
+      "firstName": "Mace",
+      "lastName": "Windu",
+      "address": {
+        "street": "6702 CedarLane",
+        "city": "Fond Du Lac",
+        "state": "WI",
+        "zip": "54935",
+        "country": "USA",
+      },
+      "emails": [
+        "purplsabr@oldrepublic.org",
+      ]
+    }
+  }
+]}

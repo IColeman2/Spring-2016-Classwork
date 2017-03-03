@@ -1,0 +1,502 @@
+package InvoiceSystem;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
+public class InvoiceSystemDriver {
+	private Connection conn;
+	private final String url = "jdbc:mysql://cse.unl.edu/cselogin";
+	private final String username = "skenny";
+	private final String password = "6tD-2P";
+	private Logger log = LogManager.getLogger("invoiceSystem");
+	private MysqlDataSource dataSource;
+	private HashMap<String, Person> personsList;
+	private HashMap<String, Product> productsList;
+	private HashMap<String, Customer> customerList;
+	HashMap<String, Invoice> invoiceList;
+	
+	public InvoiceSystemDriver(String[] main){
+		dataSource = new MysqlDataSource();
+		dataSource.setUser(username);
+		dataSource.setURL(url);
+		dataSource.setPassword(password);
+		try {
+			conn = dataSource.getConnection();
+		} catch (SQLException e) {
+			log.fatal("Incorrect Password", e);
+		}
+		personsList = getPeople();
+		productsList = getProducts();
+		customerList = getCustomers();
+		invoiceList = getInvoices();
+	}
+	
+	public HashMap<String, Person> getPersonsList() {
+		return personsList;
+	}
+
+	public HashMap<String, Product> getProductsList() {
+		return productsList;
+	}
+
+	public HashMap<String, Customer> getCustomerList() {
+		return customerList;
+	}
+
+	public HashMap<String, Invoice> getInvoiceList() {
+		return invoiceList;
+	}
+
+	private ResultSet getResultSet(String query){
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			
+		} catch (SQLException e) {
+			log.fatal("Incorrect Query", e);
+		}
+		return rs;
+	}
+	
+	private HashMap<String, Invoice> getInvoices(){
+		HashMap<String, Invoice> invoiceList = new HashMap<String, Invoice>();
+			String query = "SELECT invoiceCode, invoiceSalesperson, invoiceCustomer, invoiceId FROM Invoices";
+			ResultSet rs = getResultSet(query);
+					try {
+						while(rs.next()){
+							String code = rs.getString("invoiceCode");
+							Person salesperson = getPerson(rs.getInt("invoiceSalesperson"));
+							Customer customer = getCustomer(rs.getInt("invoiceCustomer"));
+							int invoiceId = rs.getInt("invoiceId");
+							HashMap<String, Product> products = getInvoiceProducts(invoiceId);
+							HashMap<String, Integer> units = getProductUnits(invoiceId);
+							invoiceList.put(code, new Invoice(code, customer, salesperson, products, units));
+						}
+					} catch (SQLException e) {
+						log.fatal("Incorrect Query", e);
+					}
+		return invoiceList;
+	}
+	
+	private HashMap<String, Customer> getCustomers(){
+		HashMap<String, Customer> customersList = new HashMap<String, Customer>();
+			String query = "SELECT * FROM Customers";
+			ResultSet rs = getResultSet(query);
+				try {
+					while(rs.next()){
+							String code = rs.getString("customerCode");
+							String name = rs.getString("customerName");
+							String type = rs.getString("customerType");
+							int personKey = rs.getInt("personId");
+							int addressKey = rs.getInt("addressId");
+							Person contact = getPerson(personKey);
+							Address companyAddress = getAddress(addressKey);
+							if(type.equals("government")){
+								customersList.put(code, new Government(code, name, contact, companyAddress));
+							}
+							else if(type.equals("corporate")){
+								customersList.put(code, new Corporate(code, name, contact, companyAddress));
+							}
+							
+						}
+				} catch (SQLException e) {
+					log.fatal("Incorrect Query", e);
+				}
+		return customersList;
+	}
+	
+	private HashMap<String, Product> getProducts(){
+		HashMap<String, Product> productsList = new HashMap<String, Product>();
+			//products creation
+			String query = "SELECT * FROM Products";
+			ResultSet rs = getResultSet(query);
+					try {
+						while(rs.next()){
+							String code = rs.getString("productCode");
+							String name = rs.getString("productName");
+							String type = rs.getString("productType");
+							int productKey = rs.getInt("productId");
+							
+							//equipment
+							if(type.equals("equipment")){
+								double unitCost = getUnitCost(productKey);
+								productsList.put(code, new Equipment(code, name, unitCost));
+							}
+							
+							//consultations
+							if(type.equals("consultation")){
+								double perHourCost = getPerHourCost(productKey);
+								Person salesPerson = getSalesPerson(productKey);
+								productsList.put(code, new Consultation(code, name, perHourCost, salesPerson));
+							}
+							if(type.equals("license")){
+								double annualServiceFee = getAnnualFee(productKey);
+							    double flatServiceFee = getFlatFee(productKey);
+								productsList.put(code, new License(code, name, flatServiceFee, annualServiceFee));
+							}
+						}
+					} catch (SQLException e) {
+						log.fatal("Incorrect Query", e);
+					}
+		
+		return productsList;
+	}
+	
+	private HashMap<String, Person> getPeople(){
+		HashMap<String, Person> personsList= new HashMap<String, Person>();
+			//persons creation
+			String query = "SELECT * FROM Persons";		
+			ResultSet rs = getResultSet(query);
+					try {
+						while(rs.next()){
+							String code = rs.getString("personCode");
+							String firstName = rs.getString("firstName");
+							String lastName = rs.getString("lastName");
+							Integer addressKey = rs.getInt("addressId");
+							Address add = getAddress(addressKey);
+							
+							int personKey = rs.getInt("personId");
+							ArrayList<String> emails = getEmail(personKey);
+							
+							personsList.put(code, new Person(code, firstName, lastName, add, emails));
+						}
+					} catch (SQLException e) {
+						log.fatal("Incorrect Query", e);
+					}
+		return personsList;
+	}
+		
+	private ArrayList<String> getEmail(int personId){
+		ArrayList<String> emails = new ArrayList<String>();
+		String query = "Select emailAddress FROM Emails WHERE personId = " + personId;
+		ResultSet rs = getResultSet(query);
+				try {
+					while(rs.next()){
+						emails.add(rs.getString("emailAddress"));
+					}
+				} catch (SQLException e) {
+					log.fatal("Incorrect Query", e);
+				}
+		return emails;
+	}
+	
+	private Address getAddress(int addressId){
+		
+		String query = "SELECT * FROM Adresses WHERE addressId = " + addressId;
+		Address add = null;
+		
+		//get address
+			ResultSet rs = getResultSet(query);
+				try {
+					while(rs.next()){
+						String street = rs.getString("street");
+						String city = rs.getString("city");
+						Integer stateKey = rs.getInt("state");
+						String state = getState(stateKey);
+						String zip = rs.getString("zipCode");
+						Integer countryKey = rs.getInt("country");
+						String country = getCountry(countryKey);
+						add = new Address(street, city, state, zip, country);
+					}
+				} catch (SQLException e) {
+					log.fatal("Incorrect Query", e);
+				}
+		return add;
+	}
+	
+	private String getCountry(int countryKey){
+		String query = "Select countryName FROM Countries WHERE countryId = " + countryKey;
+		String country = "";
+		ResultSet rs = getResultSet(query);
+				try {
+					while(rs.next()){
+						country = rs.getString("countryName");
+					}
+				} catch (SQLException e) {
+					log.fatal("Incorrect Query", e);
+				}
+		return country;
+	}
+	
+	private String getState(int stateKey){
+		String query = "Select stateName FROM States WHERE stateId = " + stateKey;
+		String state = "";
+		ResultSet rs = getResultSet(query);
+				try {
+					while(rs.next()){
+						state = rs.getString("stateName");
+					}
+				} catch (SQLException e) {
+					log.fatal("Incorrect Query", e);
+				}
+		return state;
+	}
+	private double getUnitCost(int key){
+		double unitCost = 0;
+		String query = "SELECT unitCost FROM ProductsInInvoices WHERE productId = " + key ;
+		ResultSet rs = getResultSet(query);
+				try {
+					while(rs.next()){
+						unitCost = rs.getDouble("unitCost");
+					}
+				} catch (SQLException e) {
+					log.fatal("Incorrect Query", e);
+				}
+		return unitCost;
+	}
+	private double getPerHourCost(int key){
+		double perHourCost = 0;
+		String equipmentQuery = "SELECT perHourCost FROM ProductsInInvoices WHERE productId = " + key ;
+		PreparedStatement equipmentStatement = null;
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			equipmentStatement = conn.prepareStatement(equipmentQuery);
+			
+			ResultSet rs2 = null;
+				rs2 = equipmentStatement.executeQuery();
+				while(rs2.next()){
+					perHourCost = rs2.getDouble("perHourCost");
+				}
+			}
+			catch(SQLException e){
+				System.out.println("Incorrect username or password");
+			}
+		return perHourCost;
+	}
+	private Person getSalesPerson(int key){
+		Person salesperson = null;
+		String equipmentQuery = "SELECT invoiceId FROM ProductsInInvoices WHERE productId = " + key ;
+		PreparedStatement equipmentStatement = null;
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			equipmentStatement = conn.prepareStatement(equipmentQuery);
+			
+			ResultSet rs2 = null;
+				rs2 = equipmentStatement.executeQuery();
+				while(rs2.next()){
+					int invoiceId = rs2.getInt("invoiceId");
+					int personId = getInvoiceSalesPerson(invoiceId);
+					salesperson = getPerson(personId);
+				}
+			}
+			catch(SQLException e){
+				System.out.println("Incorrect username or password");
+			}
+		return salesperson;
+	}
+	private int getInvoiceSalesPerson(int invoiceId){
+		int personId = 0;
+		String equipmentQuery = "SELECT invoiceSalesperson FROM Invoices WHERE invoiceId = " + invoiceId;
+		PreparedStatement equipmentStatement = null;
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			equipmentStatement = conn.prepareStatement(equipmentQuery);
+			
+			ResultSet rs2 = null;
+				rs2 = equipmentStatement.executeQuery();
+				while(rs2.next()){
+					personId = rs2.getInt("invoiceSalesperson");
+				}
+			}
+			catch(SQLException e){
+				System.out.println("Incorrect username or password");
+			}
+		return personId;
+	}
+	private Person getPerson(int id){
+		Person p = null;
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			//persons creation
+			String query = "SELECT * FROM Persons WHERE personId = " + id;
+			PreparedStatement person = null;
+				person = conn.prepareStatement(query);
+				
+				ResultSet rs = null;
+					rs = person.executeQuery();
+					while(rs.next()){
+						String code = rs.getString("personCode");
+						String firstName = rs.getString("firstName");
+						String lastName = rs.getString("lastName");
+						Integer addressKey = rs.getInt("addressId");
+						Address add = getAddress(addressKey);
+						
+						int personKey = rs.getInt("personId");
+						ArrayList<String> emails = getEmail(personKey);
+						
+						p = new Person(code, firstName, lastName, add, emails);
+					}
+				}
+				catch(SQLException e){
+					System.out.println("Incorrect Query");
+				}
+		return p;
+	}
+	private double getAnnualFee(int key){
+		double annualFee = 0;
+		String equipmentQuery = "SELECT annualServiceFee FROM ProductsInInvoices WHERE productId = " + key ;
+		PreparedStatement equipmentStatement = null;
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			equipmentStatement = conn.prepareStatement(equipmentQuery);
+			
+			ResultSet rs2 = null;
+				rs2 = equipmentStatement.executeQuery();
+				while(rs2.next()){
+					annualFee = rs2.getDouble("annualServiceFee");
+				}
+			}
+			catch(SQLException e){
+				System.out.println("Incorrect username or password");
+			}
+		return annualFee;
+	}
+	private double getFlatFee(int key){
+		double flatFee = 0;
+		String equipmentQuery = "SELECT flatServiceFee FROM ProductsInInvoices WHERE productId = " + key ;
+		PreparedStatement equipmentStatement = null;
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			equipmentStatement = conn.prepareStatement(equipmentQuery);
+			
+			ResultSet rs2 = null;
+				rs2 = equipmentStatement.executeQuery();
+				while(rs2.next()){
+					flatFee = rs2.getDouble("flatServiceFee");
+				}
+			}
+			catch(SQLException e){
+				System.out.println("Incorrect username or password");
+			}
+		return flatFee;
+	}
+	private Customer getCustomer(int key){
+		Customer c = null;
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			//products creation
+			String query = "SELECT * FROM Customers WHERE customerId = " + key;
+			PreparedStatement customers = null;
+				customers = conn.prepareStatement(query);
+				
+				ResultSet rs = null;
+					rs = customers.executeQuery();
+					while(rs.next()){
+						String code = rs.getString("customerCode");
+						String name = rs.getString("customerName");
+						String type = rs.getString("customerType");
+						int personKey = rs.getInt("personId");
+						int addressKey = rs.getInt("addressId");
+						Person contact = getPerson(personKey);
+						Address companyAddress = getAddress(addressKey);
+						if(type.equals("government")){
+							c = new Government(code, name, contact, companyAddress);
+						}
+						else if(type.equals("corporate")){
+							c = new Corporate(code, name, contact, companyAddress);
+						}
+						
+					}
+				}
+				catch(SQLException e){
+					System.out.println("Incorrect username or password");
+				}
+		return c;
+	}
+	private HashMap<String, Product> getInvoiceProducts(int invoiceId){
+		HashMap<String, Product> invoiceProducts = new HashMap<String, Product>();
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			String query = "SELECT productId FROM ProductsInInvoices WHERE invoiceId = " + invoiceId;
+			PreparedStatement products = conn.prepareStatement(query);
+			ResultSet rs = products.executeQuery();
+			while(rs.next()){
+				int productKey = rs.getInt("productId");
+				Product p = getProduct(productKey);
+				invoiceProducts.put(p.getProductCode(), p);
+			}
+		}catch(SQLException e){
+			System.out.println("Incorrect username or password");
+		}
+		return invoiceProducts;
+	
+	}
+	private Product getProduct(int productKey){
+		Product p = null;
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			//products creation
+			String query = "SELECT * FROM Products WHERE productId = " + productKey;
+			PreparedStatement products = null;
+				products = conn.prepareStatement(query);
+				
+				ResultSet rs = null;
+					rs = products.executeQuery();
+					while(rs.next()){
+						String code = rs.getString("productCode");
+						String name = rs.getString("productName");
+						String type = rs.getString("productType");
+						
+						//equipment
+						if(type.equals("equipment")){
+							double unitCost = getUnitCost(productKey);
+							p = new Equipment(code, name, unitCost);
+						}
+						
+						//consultations
+						if(type.equals("consultation")){
+							double perHourCost = getPerHourCost(productKey);
+							Person salesPerson = getSalesPerson(productKey);
+							p = new Consultation(code, name, perHourCost, salesPerson);
+						}
+						if(type.equals("license")){
+							double annualServiceFee = getAnnualFee(productKey);
+						    double flatServiceFee = getFlatFee(productKey);
+							p = new License(code, name, flatServiceFee, annualServiceFee);
+						}
+					}
+				}
+				catch(SQLException e){
+					System.out.println("Incorrect username or password");
+				}
+		return p;
+	}
+	private HashMap<String, Integer> getProductUnits(int invoiceId){
+		HashMap<String, Integer> invoiceProductUnits = new HashMap<String, Integer>();
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			String query = "SELECT productId, numberOfUnits, beginningDate, endDate, consultationHours FROM ProductsInInvoices WHERE invoiceId = " + invoiceId;
+			PreparedStatement products = conn.prepareStatement(query);
+			ResultSet rs = products.executeQuery();
+			while(rs.next()){
+				int productKey = rs.getInt("productId");
+				Product p = getProduct(productKey);
+				if(p.getProductType().equals("Consultation")){
+					int units = rs.getInt("consultationHours");
+					invoiceProductUnits.put(p.getProductCode(), units);
+				}
+				if(p.getProductType().equals("Equipment")){
+					int units = rs.getInt("numberOfUnits");
+					invoiceProductUnits.put(p.getProductCode(), units);
+				}
+				if(p.getProductType().equals("License")){
+					Date beg = new Date(rs.getInt("beginningDate"));
+					Date end = new Date(rs.getInt("endDate"));
+					int units = (int) TimeUnit.MILLISECONDS.toDays(beg.getTime() - end.getTime());
+					invoiceProductUnits.put(p.getProductCode(), units);
+				}
+			}
+		}catch(SQLException e){
+			System.out.println("Incorrect username or password");
+		}
+		return invoiceProductUnits;
+	}
+}

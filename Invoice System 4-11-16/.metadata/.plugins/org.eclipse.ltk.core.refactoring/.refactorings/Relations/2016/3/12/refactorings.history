@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;Relation.java&apos; to &apos;unl.cse.relations&apos;" description="Move &apos;Relation.java&apos; to &apos;unl.cse.relations&apos;" destination="unl.cse.relations" element1="unl/cse/relations/Relation.java" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1458098154660" updateReferences="true"/>
+</session>

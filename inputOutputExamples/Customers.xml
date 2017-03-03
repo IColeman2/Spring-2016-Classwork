@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<customers>
+<governmentCustomer>
+  <customerCode>C001</customerCode>
+  <name>The New Republic</name>
+  <address>
+    <street>16016 W 83rd Terrace</street>
+    <city>Lenexa</city>
+    <state>KS</state>
+    <zip>66219</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>g4y</personCode>
+    <firstName>Poe</firstName>
+    <lastName>Dameron</lastName>
+    <address>
+      <street>4444 Yavin Street</street>
+      <city>Chicago</city>
+      <state>IL</state>
+      <zip>60613</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>mostdaring_fighter_pilot@resistance.gov</email>
+    </emails>
+  </primaryContact>
+</governmentCustomer>
+<governmentCustomer>
+  <customerCode>C002</customerCode>
+  <name>The First Order</name>
+  <address>
+    <street>430 N 14th St</street>
+    <city>Lincoln</city>
+    <state>NE</state>
+    <zip>69508</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>jed1</personCode>
+    <firstName>Luke</firstName>
+    <lastName>Skywalker</lastName>
+    <address>
+      <street>4567 Jedi Temple Way</street>
+      <city>Lincoln</city>
+      <state>NE</state>
+      <zip>68508</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>whiny_farmboy@aol.com</email>
+      <email>lskywalker@huskers.unl.edu</email>
+    </emails>
+  </primaryContact>
+</governmentCustomer>
+<companyCustomer>
+  <customerCode>C003</customerCode>
+  <name>The Rebellion</name>
+  <address>
+    <street>17603 T St</street>
+    <city>Omaha</city>
+    <state>NE</state>
+    <zip>68135</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>1r1ncss</personCode>
+    <firstName>Leia</firstName>
+    <lastName>Organa</lastName>
+    <address>
+      <street>17603 T St</street>
+      <city>Omaha</city>
+      <state>NE</state>
+      <zip>68135</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>notacommittee@resistance.gov</email>
+	</emails>
+  </primaryContact>
+</companyCustomer>
+<governmentCustomer>
+  <customerCode>C004</customerCode>
+  <name>Jedi Order</name>
+  <address>
+    <street>703 Green St</street>
+    <city>Westford</city>
+    <state>MA</state>
+    <zip>01886</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>fn2187</personCode>
+    <firstName>Finn</firstName>
+    <lastName>Finn</lastName>
+    <address>
+      <street>630 N 14th St</street>
+      <city>Lincoln</city>
+      <state>NE</state>
+      <zip>68503</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>totally_with_the_resistance@firstorder.gov</email>
+	  <email>totally_with_the_resistance@firstorder.gov</email>
+    </emails>
+  </primaryContact>
+</governmentCustomer>
+<companyCustomer>
+  <customerCode>C005</customerCode>
+  <name>The Old Republic</name>
+  <address>
+    <street>7518 Warren Street</street>
+    <city>Soddy Daisy</city>
+    <state>TN</state>
+    <zip>37379</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>tr8r</personCode>
+    <firstName>Captain</firstName>
+    <lastName>Phasma</lastName>
+    <address>
+      <street>4682 Huron Hill Drive</street>
+      <city>Lansing</city>
+      <state>MI</state>
+      <zip>48864</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>imtheboss@firstorder.gov</email>
+    </emails>
+  </primaryContact>
+</companyCustomer>
+<companyCustomer>
+  <customerCode>C006</customerCode>
+  <name>The Aloha Oe</name>
+  <address>
+    <street>1465 Locust Lane</street>
+    <city>Rosedale</city>
+    <state>NY</state>
+    <zip>11422</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>1128h</personCode>
+    <firstName>Jessika</firstName>
+    <lastName>Pava</lastName>
+    <address>
+      <street>6642 Redwood Drive</street>
+      <city>Passaic</city>
+      <state>NJ</state>
+      <zip>07055</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>2nd_daring_pilot@resistance.gov</email>
+      <email>blueleader@yahoo.com</email>
+    </emails>
+  </primaryContact>
+</companyCustomer>
+<companyCustomer>
+  <customerCode>C007</customerCode>
+  <name>The Gogol Empire</name>
+  <address>
+    <street>6346 River Street</street>
+    <city>Mcminnville</city>
+    <state>TN</state>
+    <zip>37110</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>14nd0</personCode>
+    <firstName>Lando</firstName>
+    <lastName>Calrissan</lastName>
+    <address>
+      <street>6839 School Street</street>
+      <city>Far Rockaway</city>
+      <state>NY</state>
+      <zip>11691</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>gottalottanerve@cse.unl.edu</email>
+    </emails>
+  </primaryContact>
+</companyCustomer>
+<governmentCustomer>
+  <customerCode>C008</customerCode>
+  <name>Space Alien Registration</name>
+  <address>
+    <street>736 Cobblestone Court</street>
+    <city>Teaneck</city>
+    <state>NJ</state>
+    <zip>07666</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>123de</personCode>
+    <firstName>Jarjar</firstName>
+    <lastName>Binks</lastName>
+    <address>
+      <street>40 Plein St</street>
+      <city>Capetown</city>
+      <state></state>
+      <zip>8001</zip>
+      <country>South Africa</country>
+    </address>
+    <emails>
+      <email>meesaclumsy@firstorder.gov</email>
+	  <email>somehowasenator@oldrepublic.org</email>
+    </emails>
+  </primaryContact>
+</governmentCustomer>
+<governmentCustomer>
+  <customerCode>C009</customerCode>
+  <name>State Alchemists</name>
+  <address>
+    <street>910 Sheffield Drive</street>
+    <city>Ultica</city>
+    <state>NY</state>
+    <zip>13501</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>qu33n</personCode>
+    <firstName>Padme</firstName>
+    <lastName>Amidala</lastName>
+    <address>
+      <street>8162 Halsey St</street>
+      <city>Overland Park</city>
+      <state>KS</state>
+      <zip>66216</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>queen14@naboo.gov</email>
+    </emails>
+  </primaryContact>
+</governmentCustomer>
+<companyCustomer>
+  <customerCode>C010</customerCode>
+  <name>Ishvalian Rebellion</name>
+  <address>
+    <street>597 Front Street</street>
+    <city>Port Jefferson Station</city>
+    <state>NY</state>
+    <zip>11776</zip>
+    <country>USA</country>
+  </address>
+  <primaryContact>
+    <personCode>smljxn</personCode>
+    <firstName>Mace</firstName>
+    <lastName>Windu</lastName>
+    <address>
+      <street>6702 CedarLane</street>
+      <city>Fond Du Lac</city>
+      <state>WI</state>
+      <zip>54935</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>purplsabr@oldrepublic.org</email>
+    </emails>
+  </primaryContact>
+</companyCustomer>
+</customers>

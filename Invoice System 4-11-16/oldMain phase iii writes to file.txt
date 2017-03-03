@@ -1,0 +1,231 @@
+/**
+*I Coleman, Sarah Kenny, Nisha Rao
+*icoleman@huskers.unl.edu / sarah.kenny@huskers.unl.edu / nisha.bookworm@gmail.com
+*2/12/16
+*Assignment 3
+* This class will read in invoices and print two summaries
+*/
+
+package InvoiceSystem;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Date;
+
+public class Main {
+	
+	public static void main(String [] args){
+		//Imports the .dat files
+		try(
+				Scanner personFile = new Scanner(new File("data/Persons.dat"));
+				Scanner customerFile = new Scanner(new File("data/Customers.dat"));
+				Scanner productsFile = new Scanner(new File("data/Products.dat"));
+				Scanner invoiceFile = new Scanner(new File("data/Invoices.dat"));
+			){
+				HashMap<String, Person> personList = new HashMap<String, Person>();
+				int numOfAccounts = Integer.parseInt(personFile.nextLine());
+				for(int i = 0; i < numOfAccounts; i++){
+					//splits along ;
+					String[] tempArray = personFile.nextLine().split(";");
+					//use person function to turn each line into a person and save to personStore
+					Person tempPerson = Person.stringArrayToPerson(tempArray);
+					personList.put(tempArray[0], tempPerson);
+				}
+				
+				//Create a hash map for products
+				HashMap<String, Product> productList = new HashMap<String, Product>();
+				numOfAccounts = Integer.parseInt(productsFile.nextLine());
+				for(int i = 0; i < numOfAccounts; i++){
+					//splits along both types of punctuation
+					String[] tempArray = productsFile.nextLine().split("[;,]");
+					if(tempArray[1].equals("C")){
+						productList.put(tempArray[0], new Consultation(tempArray, personList.get(tempArray[3])));
+					}
+					else if(tempArray[1].equals("L")){
+						productList.put(tempArray[0], new License(tempArray));
+					}
+					else if(tempArray[1].equals("E")){
+						productList.put(tempArray[0], new Equipment(tempArray));
+					}
+				}
+	            
+				//Create a hash map for customers
+	            HashMap<String, Customer> customerList = new HashMap<String, Customer>();
+	            numOfAccounts = Integer.parseInt(customerFile.nextLine());
+				for(int i = 0; i < numOfAccounts; i++){
+					//splits along ;
+					String[] tempArray = customerFile.nextLine().split(";");
+					Person contact = personList.get(tempArray[2]);
+					String[] tempAddress = tempArray[4].split(",");
+		            Address address = new Address(tempAddress);
+		            if(tempArray[1].equals("G")){
+		            	customerList.put(tempArray[0], new Government(tempArray, contact, address));
+		            }
+		            else if(tempArray[1].equals("C")){
+		            	customerList.put(tempArray[0], new Corporate(tempArray, contact, address));
+		            }
+				}
+				
+				//We are also making hash maps to store the fees, taxes, and total costs of each product in the Invoice
+				ArrayList<ArrayList<InvoiceTransactions>> invoiceTransactions = new ArrayList<ArrayList<InvoiceTransactions>>();				
+				
+				//Create a hash map for Invoices
+	            int numOfInvoices = Integer.parseInt(invoiceFile.nextLine());
+				for(int i = 0; i < numOfInvoices; i++) {
+					
+					//splits along ;
+					String[] tempArray = invoiceFile.nextLine().split(";");
+					Customer customer = customerList.get(tempArray[1]);
+					Person salesperson = personList.get(tempArray[2]);
+					//We have to split the final item in the tempArray into a new array of products
+					//These are separated by commas
+					String [] productsInInvoiceArray = tempArray[3].split(",");
+					invoiceTransactions.add(new ArrayList<InvoiceTransactions>());
+					for(int j = 0; j < productsInInvoiceArray.length; j++) {
+						//Each item in the comma-separated array has more information, separated by colons
+						String [] splitProductsArray = productsInInvoiceArray[j].split(":");
+						Product currentProduct = productList.get(splitProductsArray[0]);
+						//This information varies based on the type of product
+						//Equipment
+						if (currentProduct.getProductType().equals("Equipment")) {
+							Equipment currentEquipment = (Equipment) productList.get(splitProductsArray[0]);
+							int numUnits = Integer.parseInt(splitProductsArray[1]);
+							if(customer.getCustomerType().equals("Corporate")) {
+								invoiceTransactions.get(i).add(new InvoiceTransactions("Equipment", tempArray[0], currentEquipment.getProductCode(), numUnits, 0, 0.07*currentEquipment.getTotalCost(numUnits), currentEquipment.getTotalCost(numUnits), customer, salesperson));
+							}
+							else {
+								invoiceTransactions.get(i).add(new InvoiceTransactions("Equipment", tempArray[0], currentEquipment.getProductCode(), numUnits, 0, 0, currentEquipment.getTotalCost(numUnits), customer, salesperson));
+							}	
+						}
+						//Licenses
+						else if (currentProduct.getProductType().equals("License")) {
+							License currentLicense = (License) productList.get(splitProductsArray[0]);
+							String [] beginningDateArray = splitProductsArray[1].split("-");
+							String [] endDateArray = splitProductsArray[2].split("-");
+							Date beginningDate = new Date(Integer.parseInt(beginningDateArray[0]), Integer.parseInt(beginningDateArray[1]), Integer.parseInt(beginningDateArray[2]));
+							Date endDate = new Date(Integer.parseInt(endDateArray[0]), Integer.parseInt(endDateArray[1]), Integer.parseInt(endDateArray[2]));
+							
+							//Dealing with fees and taxes
+							if(customer.getCustomerType().equals("Corporate")) {
+								invoiceTransactions.get(i).add(new InvoiceTransactions("License", tempArray[0],currentLicense.getProductCode(), (int)((endDate.getTime()- beginningDate.getTime()) / 86400000), currentLicense.getFlatServiceFee(), 0.0425*currentLicense.getTotalCost(beginningDate, endDate), currentLicense.getTotalCost(beginningDate, endDate), customer, salesperson));
+								
+							}
+							else {
+								invoiceTransactions.get(i).add(new InvoiceTransactions("License", tempArray[0],currentLicense.getProductCode(), (int)((endDate.getTime()- beginningDate.getTime()) / 86400000), 125 + currentLicense.getFlatServiceFee(), 0, currentLicense.getTotalCost(beginningDate, endDate), customer, salesperson));
+							}
+						}
+						//Consultations
+						else {
+							Consultation currentConsultation = (Consultation) productList.get(splitProductsArray[0]);
+							int numHours = Integer.parseInt(splitProductsArray[1]);
+							if(customer.getCustomerType().equals("Corporate")) {
+								invoiceTransactions.get(i).add(new InvoiceTransactions("Consultation", tempArray[0],currentConsultation.getProductCode(), numHours, 150, 0.07*currentConsultation.getTotalCost(numHours), currentConsultation.getTotalCost(numHours), customer, salesperson));
+							}
+							else {
+								invoiceTransactions.get(i).add(new InvoiceTransactions("Consultation", tempArray[0],currentConsultation.getProductCode(), numHours, 150, 0, currentConsultation.getTotalCost(numHours), customer, salesperson));
+							}
+						}
+					}
+				}
+				
+				FileWriter invoiceWriter = new FileWriter("data/output.txt");
+				
+				//First summary:
+				PrintWriter invoicePrintWriter = new PrintWriter(new BufferedWriter(invoiceWriter));
+				invoicePrintWriter.printf("Executive Summary Report\n=========================\n");
+				invoicePrintWriter.println("Invoice   Customer                                          Salesperson                      Subtotal        Fees       Taxes       Total");
+				double totalTaxes = 0.0;
+				double totalFees = 0.0;
+				double totalSubtotals = 0.0;
+				double totalTotalCost = 0.0;
+				
+				for (int i = 0; i < invoiceTransactions.size(); i++) {
+					for(int j = 0; j < invoiceTransactions.get(i).size(); j++){
+					//These variables aren't, strictly speaking, necessary, but make the code a lot more readable
+					double taxes = invoiceTransactions.get(i).get(j).getAmountOfTaxes();
+					double fees = invoiceTransactions.get(i).get(j).getAmountOfFees();
+					double subtotal = invoiceTransactions.get(i).get(j).getAmountOfCost();
+					double totalCost = taxes+fees+subtotal;
+					totalTaxes+=taxes;
+					totalFees+=fees;
+					totalSubtotals+=subtotal;
+					totalTotalCost+=totalCost;
+					}
+					invoicePrintWriter.printf("%s    %-49s %-29s $%10.2f $%10.2f $%10.2f $%10.2f\n", 
+							invoiceTransactions.get(i).get(0).getInvoiceCode(),invoiceTransactions.get(i).get(0).getCustomer().getCustomerName(), invoiceTransactions.get(i).get(0).getSalesperson().getFormattedPersonName(),
+							totalSubtotals, totalFees, totalTaxes, totalTotalCost);
+				}
+				invoicePrintWriter.println("=========================================================================================================================================");
+				invoicePrintWriter.printf("%-90s$%10.2f $%10.2f $%10.2f $%10.2f", "TOTALS", totalSubtotals, totalFees, totalTaxes, totalTotalCost);
+				
+				//Second summary:
+				invoicePrintWriter.printf("\n\n\n\n\nIndividual Invoice Detail Reports\n==================================================\n");
+				for (int i = 0; i < invoiceTransactions.size(); i++) {
+					invoicePrintWriter.printf("Invoice %s\n========================\n", invoiceTransactions.get(i).get(0).getInvoiceCode());
+					invoicePrintWriter.printf("Salesperson: %s\n", invoiceTransactions.get(i).get(0).getSalesperson().getFormattedPersonName());
+					invoicePrintWriter.println("Customer Info:");
+					invoicePrintWriter.printf("  %s (%s)\n  %s\n  %s\n  %s %s %s %s\n", 
+							invoiceTransactions.get(i).get(0).getCustomer().getCustomerName(), invoiceTransactions.get(i).get(0).getCustomer().getCustomerCode(), 
+							invoiceTransactions.get(i).get(0).getCustomer().getPrimaryContact().getFormattedPersonName(),
+							invoiceTransactions.get(i).get(0).getCustomer().getCustomerAddress().getStreet(), invoiceTransactions.get(i).get(0).getCustomer().getCustomerAddress().getCity(), 
+							invoiceTransactions.get(i).get(0).getCustomer().getCustomerAddress().getState(), invoiceTransactions.get(i).get(0).getCustomer().getCustomerAddress().getZipCode(), 
+							invoiceTransactions.get(i).get(0).getCustomer().getCustomerAddress().getCountry());
+					invoicePrintWriter.println("-------------------------------------------");
+					invoicePrintWriter.println("Code      Item                                                                         Fees       Total");
+					double taxes = 0;
+					double fees = 0;
+					double subtotal = 0;
+					double totalCost = 0;
+					for (int j = 0; j< invoiceTransactions.get(i).size(); j++) {
+						InvoiceTransactions currentInvoiceTransaction = invoiceTransactions.get(i).get(j);
+						taxes += currentInvoiceTransaction.getAmountOfTaxes();
+						fees += currentInvoiceTransaction.getAmountOfFees();
+						subtotal += currentInvoiceTransaction.getAmountOfCost();
+						if(currentInvoiceTransaction.getProductType().equals("Equipment")) {
+							Equipment currentEquipment = (Equipment) productList.get(currentInvoiceTransaction.getProductCode()) ;
+							String itemString = currentEquipment.getProductName() + " (" + currentInvoiceTransaction.getNumOfUnits() + " units @ $" + 
+							Math.round(currentEquipment.getUnitCost()*100.0)/100.0 + "/unit)";
+							invoicePrintWriter.printf("%-10s%-70s$%10.2f $%10.2f\n", currentEquipment.getProductCode(), itemString, currentInvoiceTransaction.getAmountOfFees(), currentInvoiceTransaction.getAmountOfCost());
+						}
+						else if(currentInvoiceTransaction.getProductType().equals("License")) {
+							License currentLicense = (License)productList.get(currentInvoiceTransaction.getProductCode());
+							String itemString = currentLicense.getProductName() + " (" + currentInvoiceTransaction.getNumOfUnits() +
+									" days @ $" + currentLicense.getAnnualServiceFee() + "/yr)";
+							invoicePrintWriter.printf("%-10s%-70s$%10.2f $%10.2f\n", currentLicense.getProductCode(), itemString, currentInvoiceTransaction.getAmountOfFees(), currentInvoiceTransaction.getAmountOfCost());
+
+						}
+						else if(currentInvoiceTransaction.getProductType().equals("Consultation")) {
+							System.out.println("Here");
+							Consultation currentConsultation = (Consultation) productList.get(currentInvoiceTransaction.getProductCode());
+							String itemString = currentConsultation.getProductName() + " (" + currentInvoiceTransaction.getNumOfUnits() + "hrs @ " + currentConsultation.getPerHourCost() + "per hour)";
+							invoicePrintWriter.printf("%-10s%-70s$%10.2f $%10.2f\n", currentConsultation.getProductCode(), itemString, currentInvoiceTransaction.getAmountOfFees(), currentInvoiceTransaction.getAmountOfCost());
+						}
+					}
+					invoicePrintWriter.println("                                                                                ========================");
+					//These variables aren't, strictly speaking, necessary, but make the code a lot more readable
+					totalCost = taxes+fees+subtotal;
+					invoicePrintWriter.printf("SUB-TOTALS                                                                      $%10.2f $%10.2f\n", fees, subtotal);
+					if(invoiceTransactions.get(i).get(0).getCustomer().getCustomerType().equals("Government")) {
+						invoicePrintWriter.printf("COMPLIANCE FEE                                                                              $    125.00\n");
+					}
+					else {
+						invoicePrintWriter.printf("COMPLIANCE FEE                                                                              $      0.00\n");
+					}
+					invoicePrintWriter.printf("TAXES                                                                                       $%10.2f\n", taxes);
+					invoicePrintWriter.printf("TOTAL                                                                                       $%10.2f",totalCost);
+					invoicePrintWriter.printf("\n\n\n\n");
+				}
+				
+				invoicePrintWriter.close();
+				
+			}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

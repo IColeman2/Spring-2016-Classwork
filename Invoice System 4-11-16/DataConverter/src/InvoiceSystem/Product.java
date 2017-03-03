@@ -1,0 +1,50 @@
+/**
+*I Coleman, Sarah Kenny, Nisha Rao
+*icoleman@huskers.unl.edu / sarah.kenny@huskers.unl.edu / nisha.bookworm@gmail.com
+*2/12/16
+*Assignment 2
+*/
+package InvoiceSystem;
+
+public abstract class Product {
+    
+    private String productCode;
+    private String productName;
+    private String productType;
+    
+    public Product(String code, String name, String type){
+        productCode = code;
+        productName = name;
+        productType = type;
+    }
+
+    //Getters and setters
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getProductType() {
+		return productType;
+	}
+
+	public void setProductType(String productType) {
+		this.productType = productType;
+	}
+	
+	public abstract double getTax();
+	public abstract double getFee();
+	public abstract double getTotalCost(int units);
+    
+}

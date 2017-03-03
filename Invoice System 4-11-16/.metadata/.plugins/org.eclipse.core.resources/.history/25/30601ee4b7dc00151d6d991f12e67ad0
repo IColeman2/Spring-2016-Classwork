@@ -1,0 +1,29 @@
+package InvoiceSystem;
+
+public class InvoiceTransactions {
+	
+	private String equipmentCode;
+	private int numOfUnits;
+	
+	public InvoiceTransactions(String code, int numberOfUnits){
+		equipmentCode = code;
+		numOfUnits = numberOfUnits;
+	}
+
+	public String getEquipmentCode() {
+		return equipmentCode;
+	}
+
+	public void setEquipmentCode(String equipmentCode) {
+		this.equipmentCode = equipmentCode;
+	}
+
+	public int getNumOfUnits() {
+		return numOfUnits;
+	}
+
+	public void setNumOfUnits(int numOfUnits) {
+		this.numOfUnits = numOfUnits;
+	}
+
+}

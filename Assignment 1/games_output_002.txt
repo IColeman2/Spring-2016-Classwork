@@ -1,0 +1,41 @@
+
+Publisher Game Counts
+==============================
+3D Realms: 0
+Apogee: 1
+Bethesda: 3
+Bethesday: 1
+Daniel Mullins Games: 1
+Davey Wreden: 2
+Dingaling Games: 2
+EA: 0
+Konami: 0
+Microsoft: 0
+Milkstone Studios: 1
+Nintendo: 0
+Rising Star Games: 1
+Sony: 0
+Toby Fox: 1
+Ubisoft: 0
+Valve: 1
+Warner Bros.: 0
+iD Software: 3
+
+Game Platform Counts
+==============================
+DOOM: 1
+DOOM 3:BFG Edition: 0
+DOOM II: Hell on Earth: 0
+Deadly Premonition: 3
+Dota 2: 1
+Fallout 4: 3
+Final DOOM: 0
+LISA: The Joyful: 1
+LISA: The Painful RPG: 1
+Pony island: 1
+Rise of the Triad: 0
+The Beginner's Guide: 1
+The Stanley Parable: 1
+Undertale: 1
+Wolfenstein: The New Order: 6
+Ziggurat: 3

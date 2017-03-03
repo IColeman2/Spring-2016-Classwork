@@ -1,0 +1,113 @@
+Executive Summary Report
+=========================
+Invoice   Customer                                          Salesperson                      Subtotal        Fees       Taxes       Total
+INV001    The New Republic                                  Dameron, Poe                  $  18380.00 $    150.00 $      0.00 $  18530.00
+INV002    The First Order                                   Skywalker, Luke               $ 208400.00 $    150.00 $      0.00 $ 208550.00
+INV003    Ishvalian Rebellion                               Ren, Kylo                     $8772314.00 $   2350.00 $ 373129.04 $9147793.04
+INV004    The New Republic                                  Solo, Han                     $   2400.00 $    350.00 $      0.00 $   2525.00
+INV005    The Rebellion                                     Pava, Jessika                 $   5066.00 $    150.00 $    266.62 $   5332.62
+=========================================================================================================================================
+TOTALS                                                                                    $9006560.00 $   3150.00 $ 373395.66 $9383105.66
+
+
+
+
+Individual Invoice Detail Reports
+==================================================
+Invoice INV001
+========================
+Salesperson: Dameron, Poe
+Customer Info: 
+  The New Republic (C001)
+  Dameron, Poe
+  16016 W 83rd Terrace
+  Lenexa KS 66219 USA
+-------------------------------------------
+Code      Item                                                                         Fees       Total
+ejkj      Protocol Droid (2 units @ $6390.00/unit)                              $      0.00 $  12780.00
+3040      Death Star Plans (80.00 hrs @ $70.00/hr)                              $    150.00 $   5600.00
+                                                                                ========================
+SUB-TOTALS                                                                      $    150.00 $  18380.00
+COMPLIANCE FEE                                                                              $    125.00
+TAXES                                                                                       $      0.00
+TOTAL                                                                                       $  18530.00
+
+
+
+Invoice INV002
+========================
+Salesperson: Binks, Jarjar
+Customer Info: 
+  The First Order (C002)
+  Skywalker, Luke
+  430 N 14th St
+  Lincoln NE 69508 USA
+-------------------------------------------
+Code      Item                                                                         Fees       Total
+m4ns      Tie Fighter (2 units @ $100000.00/unit)                               $      0.00 $ 200000.00
+3040      Death Star Plans (120.00 hrs @ $70.00/hr)                             $    150.00 $   8400.00
+                                                                                ========================
+SUB-TOTALS                                                                      $    150.00 $ 208400.00
+COMPLIANCE FEE                                                                              $    125.00
+TAXES                                                                                       $      0.00
+TOTAL                                                                                       $ 208550.00
+
+
+
+Invoice INV003
+========================
+Salesperson: Ren, Kylo
+Customer Info: 
+  Ishvalian Rebellion (C010)
+  Windu, Mace
+  597 Front Street
+  Port Jefferson Station NY 11776 USA 
+-------------------------------------------
+Code      Item                                                                         Fees       Total
+k3nn      X-Wing Fighter (9 units @ $1234.99/unit)                              $           $  11114.91
+yn1s      Cinco Intergalactic Service (730 days @ $12000.00/yr)                 $   2000.00 $8760000.00
+4r40	  Bounty Hunter Hire (365 days @ $1200.00/yr)                           $    350.00 $   1200.00
+                                                                                ========================
+SUB-TOTALS                                                                      $   2350.00 $8772314.00
+COMPLIANCE FEE                                                                              $      0.00
+TAXES                                                                                       $ 373129.04
+TOTAL                                                                                       $9147793.04
+
+
+
+Invoice INV004
+========================
+Salesperson: Solo, Han
+Customer Info: 
+  The New Republic (C001)
+  Dameron, Poe
+  16016 W 83rd Terrace
+  Lenexa KS 66219 USA
+-------------------------------------------
+Code      Item                                                                         Fees       Total
+4r40	  Bounty Hunter Hire (730 days @ $1200.00/yr)                           $    350.00 $   2400.00
+                                                                                ========================
+SUB-TOTALS                                                                      $    350.00 $   2400.00
+COMPLIANCE FEE                                                                              $    125.00
+TAXES                                                                                       $      0.00
+TOTAL                                                                                       $   2525.00
+
+
+
+Invoice INV005
+========================
+Salesperson: Pava, Jessika
+Customer Info: 
+  The Rebellion (C001)
+  Organa, Leia
+  17603 T St 
+  Omaha NE 68135 USA
+-------------------------------------------
+Code      Item                                                                         Fees       Total
+0n4s      Pilot Lessons (400.00 hrs @ $8.00/hr)                                 $    150.00 $   3200.00
+j0hm      Astromech Droid (3 units @ $6202.00/unit)                             $      0.00 $   1866.00
+                                                                                ========================
+SUB-TOTALS                                                                      $    150.00 $   5066.00
+COMPLIANCE FEE                                                                              $      0.00
+TAXES                                                                                       $    266.62
+TOTAL                                                                                       $   5332.62

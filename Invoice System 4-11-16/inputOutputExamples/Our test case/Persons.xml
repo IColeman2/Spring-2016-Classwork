@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<persons>
+<person>
+  <personCode>g4y</personCode>
+  <firstName>Poe</firstName>
+  <lastName>Dameron</lastName>
+  <address>
+    <street>4444 Yavin Street</street>
+    <city>Chicago</city>
+    <state>IL</state>
+    <zip>60613</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>mostdaring_fighter_pilot@resistance.gov</email>
+  </emails>
+</person>
+<person>
+  <personCode>jed1</personCode>
+  <firstName>Luke</firstName>
+  <lastName>Skywalker</lastName>
+  <address>
+    <street>4567 Jedi Temple Way</street>
+    <city>Lincoln</city>
+    <state>NE</state>
+    <zip>68508</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>whiny_farmboy@aol.com</email>
+	<email>lskywalker@huskers.unl.edu</email>
+  </emails>
+</person>
+<person>
+  <personCode>b3ns010</personCode>
+  <firstName>Kylo</firstName>
+  <lastName>Ren</lastName>
+  <address>
+    <street>16016 W 83rd Terrace</street>
+    <city>Lenexa</city>
+    <state>KS</state>
+    <zip>66219</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>its_not_a_phase_dad@hotmail.com</email>
+    <email>commander@firstorder.gov</email>
+  </emails>
+</person>
+<person>
+  <personCode>010sn3b</personCode>
+  <firstName>Matt</firstName>
+  <lastName>Radartechnician</lastName>
+  <address>
+    <street>Plot 1577 Ggaba Rd.</street>
+    <city>Campala</city>
+    <state></state>
+    <zip></zip>
+    <country>Uganda</country>
+  </address>
+  <emails>
+    <email>notkyloren@firstorder.gov</email>
+    <email>kylorenisshredded@hotmail.com</email>
+  </emails>
+</person>
+<person>
+  <personCode>1r1ncss</personCode>
+  <firstName>Leia</firstName>
+  <lastName>Organa</lastName>
+  <address>
+    <street>17603 T St</street>
+    <city>Omaha</city>
+    <state>NE</state>
+    <zip>68135</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>notacommittee@resistance.gov</email>
+  </emails>
+</person>
+<person>
+  <personCode>12prscs</personCode>
+  <firstName>Han</firstName>
+  <lastName>Solo</lastName>
+  <address>
+    <street>7 Abeto</street>
+    <city>Irvine</city>
+    <state>CA</state>
+    <zip>92620</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email></email>
+  </emails>
+</person>
+<person>
+  <personCode>fn2187</personCode>
+  <firstName>Finn</firstName>
+  <lastName>Finn</lastName>
+  <address>
+    <street>630 N 14th St</street>
+    <city>Lincoln</city>
+    <state>NE</state>
+    <zip>68508</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>totally_with_the_resistance@firstorder.gov</email>
+    <email>poesbae@gmail.com</email>
+  </emails>
+</person>
+<person>
+  <personCode>sc4v</personCode>
+  <firstName>Rey</firstName>
+  <lastName>Skywalker</lastName>
+  <address>
+    <street>11 Guang Hua Lu Jian Guo Men Wai</street>
+    <city>Beijing</city>
+    <state></state>
+    <zip>100600</zip>
+    <country>China</country>
+  </address>
+  <emails>
+    <email>reysourbae@gmail.com</email>
+    <email>bak2jakku@resistance.gov</email>
+  </emails>
+</person>
+<person>
+  <personCode>tr8r</personCode>
+  <firstName>Phasma</firstName>
+  <lastName>Captain</lastName>
+  <address>
+    <street>4682 Huron Hill Drive</street>
+    <city>Lansing</city>
+    <state>MI</state>
+    <zip>48864</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>imtheboss@firstorder.gov</email>
+  </emails>
+</person>
+<person>
+  <personCode>1128h</personCode>
+  <firstName>Jessika</firstName>
+  <lastName>Pava</lastName>
+  <address>
+    <street>6642 Redwood Drive</street>
+    <city>Passaic</city>
+    <state>NJ</state>
+    <zip>07055</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>2nd_daring_pilot@resistance.gov</email>
+    <email>blueleader@yahoo.com</email>
+  </emails>
+</person>
+<person>
+  <personCode>1138t</personCode>
+  <firstName>Maz</firstName>
+  <lastName>Kanata</lastName>
+  <address>
+    <street>8878 Hickory Lane</street>
+    <city>Georgetown</city>
+    <state>SC</state>
+    <zip>29440</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email></email>
+  </emails>
+</person>
+<person>
+  <personCode>4ngr3g4y</personCode>
+  <firstName>General</firstName>
+  <lastName>Hux</lastName>
+  <address>
+    <street>15 Queen's Park West</street>
+    <city>Port of Spain</city>
+    <state>Trinidad</state>
+    <zip></zip>
+    <country>Tobago</country>
+  </address>
+  <emails>
+    <email>snokes_fav@firstorder.gov</email>
+  </emails>
+</person>
+<person>
+  <personCode>b4d</personCode>
+  <firstName>Leader</firstName>
+  <lastName>Snoke</lastName>
+  <address>
+    <street>Jung Song-Dong</street>
+    <city>Central District</city>
+    <state>Pyongyang</state>
+    <zip></zip>
+    <country>North Korea</country>
+  </address>
+  <emails>
+	<email>bigbad@firstorder.gov</email>
+	<email>pinkponyluvr@yahoo.com</email>
+  </emails>
+</person>
+<person>
+  <personCode>14nd0</personCode>
+  <firstName>Lando</firstName>
+  <lastName>Calrissan</lastName>
+  <address>
+    <street>6839 School Street</street>
+    <city>Far Rockaway</city>
+    <state>NY</state>
+    <zip>11691</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+	<email>gottalottanerve@cse.unl.edu</email>
+  </emails>
+</person>
+<person>
+  <personCode>123de</personCode>
+  <firstName>Jarjar</firstName>
+  <lastName>Binks</lastName>
+  <address>
+    <street>40 Plein St</street>
+    <city>Capetown</city>
+    <state></state>
+    <zip>8001</zip>
+    <country>South Africa</country>
+  </address>
+  <emails>
+    <email>meesaclumsy@firstorder.gov</email>
+    <email>somehowasenator@oldrepublic.org</email>
+  </emails>
+</person>
+<person>
+  <personCode>345n6</personCode>
+  <firstName>Sheev</firstName>
+  <lastName>Palpatine</lastName>
+  <address>
+    <street>3135 Lincoln Ave</street>
+    <city>Hickory</city>
+    <state>NC</state>
+    <zip>28601</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>notleadingtheconfederacy@oldrepublic.org</email>
+    <email>not_leading_the_republic@CIS.com</email>
+  </emails>
+</person>
+<person>
+  <personCode>qu33n</personCode>
+  <firstName>Padme</firstName>
+  <lastName>Amidala</lastName>
+  <address>
+    <street>8162 Halsey St</street>
+    <city>Overland Park</city>
+    <state>KS</state>
+    <zip>66216</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+	<email>queen14@naboo.gov</email>
+  </emails>
+</person>
+<person>
+  <personCode>v4d3r</personCode>
+  <firstName>Anakin</firstName>
+  <lastName>Skywalker</lastName>
+  <address>
+    <street>49 Portland Place</street>
+    <city>London</city>
+    <state></state>
+    <zip>W1B1JL</zip>
+    <country>England</country>
+  </address>
+  <emails>
+	<email>whiny_bad_actor@seriouslytheworst.com</email>
+  </emails>
+</person>
+<person>
+  <personCode>h3rm1t</personCode>
+  <firstName>ObiWan</firstName>
+  <lastName>Kenobi</lastName>
+  <address>
+    <street>1060 West Addison Street</street>
+    <city>Chicago</city>
+    <state>IL</state>
+    <zip>60613</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>oldben@gmail.com</email>
+  </emails>
+</person>
+<person>
+  <personCode>smljxn</personCode>
+  <firstName>Mace</firstName>
+  <lastName>Windu</lastName>
+  <address>
+    <street>6702 CedarLane</street>
+    <city>Fond Du Lac</city>
+    <state>WI</state>
+    <zip>54935</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>purplsabr@oldrepublic.org</email>
+  </emails>
+</person>
+<person>
+  <personCode>p1lt</personCode>
+  <firstName>Wedge</firstName>
+  <lastName>Antilles</lastName>
+  <address>
+    <street>773 Garfield Ave</street>
+    <city>Meadville</city>
+    <state>PA</state>
+    <zip>16335</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>hothhero@rebellion.net</email>
+  </emails>
+</person>
+<person>
+  <personCode>401k</personCode>
+  <firstName>QuiGon</firstName>
+  <lastName>Jinn</lastName>
+  <address>
+    <street>3 Moyqo&apos;rq&apos;on St</street>
+    <city>Tashkent</city>
+    <state>Yunusobod District</state>
+    <zip></zip>
+    <country>Uzbekistan</country>
+  </address>
+  <emails>
+    <email>diesquick@oldrepublic.org</email>
+  </emails>
+</person>
+<person>
+  <personCode>w2w2</personCode>
+  <firstName>Darth</firstName>
+  <lastName>Maul</lastName>
+  <address>
+    <street>457 Poplar St</street>
+    <city>Palm Harbor</city>
+    <state>FL</state>
+    <zip>34683</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <email>diesquicker@sith.net</email>
+  </emails>
+</person>
+</persons>

@@ -1,0 +1,39 @@
+
+Publisher Game Counts
+==============================
+Atari: 0
+Blizzard Entertainment: 0
+Capcom: 3
+Delphine Software: 1
+LucasArts: 3
+Namco: 1
+Nintendo: 5
+Rockstar Games: 4
+Sega: 0
+Sony Computer Entertainment: 0
+Square Enix: 0
+Ubisoft: 1
+Valve: 2
+
+Game Platform Counts
+==============================
+Assassin's Creed: 1
+Contra: 0
+GTA: 0
+GTA 2: 0
+GTA 3: 0
+GTA IV: 2
+Katamari Damacy: 1
+Legend of Zelda: 1
+Lego Star Wars: 4
+Mega Man 3: 1
+Mega Man 4: 0
+Out of this World: 2
+Portal: 3
+Portal 2: 4
+Super Mario Brothers: 1
+Super Mario Land: 1
+Tetris: 1
+Tie Fighter: 1
+X-Wing vs Tie Fighter: 1
+Zelda II: The Adventure of Link: 1

@@ -1,0 +1,353 @@
+{
+"persons": [
+  {
+    "personCode": "g4y",
+    "firstName": "Poe",
+    "lastName": "Dameron",
+    "address": {
+      "street": "4444 Yavin St",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60613",
+      "country": "USA",
+    },
+    "emails": [
+      "mostdaring_fighter_pilot@resistance.gov",
+    ]
+  },
+  {
+    "personCode": "jed1",
+    "firstName": "Luke",
+    "lastName": "Skywalker",
+    "address": {
+      "street": "4567 Jedi Temple Way",
+      "city": "Lincoln",
+      "state": "NE",
+      "zip": "68508",
+      "country": "USA",
+    },
+    "emails": [
+      "whiny_farmboy@aol.com",
+	  "lskywalker@huskers.unl.edu",
+    ]
+  },
+  {
+    "personCode": "b3ns010",
+    "firstName": "Kylo",
+    "lastName": "Ren",
+    "address": {
+      "street": "16016 W 83rd Terrace",
+      "city": "Lenexa",
+      "state": "KS",
+      "zip": "66219",
+      "country": "USA",
+    },
+    "emails": [
+      "its_not_a_phase_dad@hotmail.com",
+      "commander@firstorder.gov",
+    ]
+  },
+  {
+    "personCode": "010sn3b",
+    "firstName": "Radartechnician",
+    "lastName": "Matt",
+    "address": {
+      "street": "Plot 1577 Ggaba Rd.",
+      "city": "Campala",
+      "state": "",
+      "zip": "",
+      "country": "Uganda",
+    },
+    "emails": [
+      "notkyloren@firstorder.gov",
+      "kylorenisshredded@hotmail.com",
+    ]
+  },
+  {
+    "personCode": "1r1ncss",
+    "firstName": "Leia",
+    "lastName": "Organa",
+    "address": {
+      "street": "17603 T St,Omana",
+      "city": "Omaha",
+      "state": "NE",
+      "zip": "68135",
+      "country": "USA",
+    },
+    "emails": [
+      "notacommittee@resistance.gov",
+    ]
+  },
+  {
+    "personCode": "12prscs",
+    "firstName": "Han",
+    "lastName": "Solo",
+    "address": {
+      "street": "7 Abeto",
+      "city": "Irvine",
+      "state": "CA",
+      "zip": "92620",
+      "country": "USA",
+    },
+    "emails": []
+  },
+  {
+    "personCode": "fn2187",
+    "firstName": "Finn",
+    "lastName": "Finn",
+    "address": {
+      "street": "630 N 14th St",
+      "city": "Lincoln",
+      "state": "NE",
+      "zip": "68508",
+      "country": "USA",
+    },
+    "emails": [
+      "totally_with_the_resistance@firstorder.gov",
+      "poesbae@gmail.com",
+    ]
+  },
+  {
+    "personCode": "sc4v",
+    "firstName": "Rey",
+    "lastName": "Skywalker",
+    "address": {
+      "street": "11 Guang Hua Lu Jian Guo Men Wai",
+      "city": "Beijing",
+      "state": "",
+      "zip": "100600",
+      "country": "China",
+    },
+    "emails": [
+      "reysourbae@gmail.com",
+      "back2jakku@resistance.gov",
+    ]
+  },
+  {
+    "personCode": "tr8r",
+    "firstName": "Captain",
+    "lastName": "Phasma",
+    "address": {
+      "street": "4682 Huron Hill Drive",
+      "city": "Lansing",
+      "state": "MI",
+      "zip": "48864",
+      "country": "USA",
+    },
+    "emails": [
+      "imtheboss@firstorder.gov",
+    ]
+  },
+  {
+    "personCode": "1128h",
+    "firstName": "Jessika",
+    "lastName": "Pava",
+    "address": {
+      "street": "6642 Redwood Drive",
+      "city": "Passaic",
+      "state": "NJ",
+      "zip": "07055",
+      "country": "USA",
+    },
+    "emails": [
+      "2nd_daring_pilot@resistance.gov",
+      "blueleader@yahoo.com",
+    ]
+  },
+  {
+    "personCode": "1138t",
+    "firstName": "Maz",
+    "lastName": "Kanata",
+    "address": {
+      "street": "8878 Hickory Lane",
+      "city": "Georgetown",
+      "state": "SC",
+      "zip": "29440",
+      "country": "USA",
+    },
+    "emails": []
+  },
+  {
+    "personCode": "4ngr3g4y",
+    "firstName": "General",
+    "lastName": "Hux",
+    "address": {
+      "street": "15 Queen's Park West",
+      "city": "Port of Spain",
+      "state": "Trinidad",
+      "zip": "",
+      "country": "Tobago"
+    },
+    "emails": [
+      "snokes_fav@firstorder.gov",
+    ]
+  },
+  {
+    "personCode": "b4d",
+    "firstName": "Leader",
+    "lastName": "Snoke",
+    "address": {
+      "street": "Jung Song-Dong",
+      "city": "Central District",
+      "state": "Pyongyang",
+      "zip": "",
+      "country": "North Korea",
+    },
+    "emails": [
+	   "bigbad@firstorder.gov",
+	   "pinkponyluvr@yahoo.com",
+	]
+  },
+  {
+    "personCode": "14nd0",
+    "firstName": "Lando",
+    "lastName": "Calrissan",
+    "address": {
+      "street": "6839 School Street",
+      "city": "Far Rockaway",
+      "state": "NY",
+      "zip": "11691",
+      "country": "USA",
+    },
+    "emails": [
+	   "gottalottanerve@cse.unl.edu",
+	]
+  },
+  {
+    "personCode": "123de",
+    "firstName": "Jarjar",
+    "lastName": "Binks",
+    "address": {
+      "street": "40 Plein St",
+      "city": "Capetown",
+      "state": "",
+      "zip": "8001",
+      "country": "South Africa",
+    },
+    "emails": [
+      "meesaclumsy@firstorder.gov",
+      "somehowasenator@oldrepublic.org",
+    ]
+  },
+  {
+    "personCode": "345n6",
+    "firstName": "Sheev",
+    "lastName": "Palpatine",
+    "address": {
+      "street": "3135 Lincoln Ave",
+      "city": "Hickory",
+      "state": "NC",
+      "zip": "28601",
+      "country": "USA",
+    },
+    "emails": [
+      "notleadingtheconfederacy@oldrepublic.org",
+      "not_leading_the_republic@CIS.com",
+    ]
+  },
+  {
+    "personCode": "qu33n",
+    "firstName": "Padme",
+    "lastName": "Amidala",
+    "address": {
+      "street": "8162 Halsey St",
+      "city": "Overland Park",
+      "state": "KS",
+      "zip": "66216",
+      "country": "USA",
+    },
+    "emails": [
+	  "queen14@naboo.gov",
+	]
+  },
+  {
+    "personCode": "v4d3r",
+    "firstName": "Anakin",
+    "lastName": "Skywalker",
+    "address": {
+      "street": "49 Portland Place",
+      "city": "London",
+      "state": "",
+      "zip": "W1B1JL",
+      "country": "England",
+    },
+    "emails": [
+	  "whiny_bad_actor@seriouslytheworst.com",
+	]
+  },
+  {
+    "personCode": "h3rm1t",
+    "firstName": "ObiWan",
+    "lastName": "Kenobi",
+    "address": {
+      "street": "1060 West Addison Street",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60613",
+      "country": "USA",
+    },
+    "emails": [
+      "oldben@gmail.com",
+    ]
+  },
+  {
+    "personCode": "smljxn",
+    "firstName": "Mace",
+    "lastName": "Windu",
+    "address": {
+      "street": "6702 CedarLane",
+      "city": "Fond Du Lac",
+      "state": "WI",
+      "zip": "54935",
+      "country": "USA",
+    },
+    "emails": [
+      "purplsabr@oldrepublic.org",
+    ]
+  }
+  {
+    "personCode": "p1lt",
+    "firstName": "Wedge",
+    "lastName": "Antilles",
+    "address": {
+      "street": "773 Garfield Ave",
+      "city": "Meadville",
+      "state": "PA",
+      "zip": "16335",
+      "country": "USA",
+    },
+    "emails": [
+	  "hothhero@rebellion.net",
+	]
+  },
+  {
+    "personCode": "401k",
+    "firstName": "QuiGon",
+    "lastName": "Jinn",
+    "address": {
+      "street": "3 Moyqo'rq'on St",
+      "city": "Tashkent",
+      "state": "Yunusobod District",
+      "zip": "",
+      "country": "Uzbekistan",
+    },
+    "emails": [
+      "diesquick@oldrepublic.org",
+    ]
+  },
+  {
+    "personCode": "w2w2",
+    "firstName": "Darth",
+    "lastName": "Maul",
+    "address": {
+      "street": "457 Poplar St",
+      "city": "Palm Harbor",
+      "state": "FL",
+      "zip": "34683",
+      "country": "USA",
+    },
+    "emails": [
+      "diesquicker@sith.net",
+    ]
+  }
+]}

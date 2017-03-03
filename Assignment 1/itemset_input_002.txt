@@ -1,0 +1,20 @@
+19
+Poe Dameron, Finn, Rey, Kylo Ren
+BB-8, Poe Dameron, Han Solo
+BB-8, Chewbacca, Poe Dameron,
+Jessika Pava, Rey
+Rey, Jessika Pava
+General Hux, Captain Phasma, Kylo Ren, Supreme Leader Snoke, TR-8R
+Poe Dameron, Finn, Rey, BB-8, Jessika Pava, Han Solo, General Leia Organa, R2-D2, C-3PO
+General Leia Ogana, Rey, Jessika Pava, Captain Phasma
+Luke Skywalker
+R2-D2, C-3PO, BB-8
+Poe Dameron, Jessika Pava, General Leia Organa
+Supreme Leader Snoke, Kylo Ren, General Leia Organa, Rey, Luke Sykwalker
+R2-D2, BB-8, Rey, Jessika Pava
+Chewbacca, Captain Phasma
+TR-8R, Finn, Captain Phasma
+TR-8R, BB-8, Jessika Pava
+Poe Dameron, Finn
+General Leia Organa, Han Solo
+TR-8R, Captain Phasma, Supreme Leader Snoke, Luke Sywalker

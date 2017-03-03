@@ -1,0 +1,116 @@
+package InvoiceSystem;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+public class Invoice {
+	private String invoiceCode;
+	private Customer invoiceCustomer;
+	private Person invoiceSalesperson;
+	private HashMap<String, Product> invoiceProducts;
+	private HashMap<String, Integer> productUnits;
+	
+	public Invoice (String code, Customer customer, Person salesperson, HashMap<String, Product> products, HashMap<String, Integer> units){
+		this.invoiceCode = code;
+		this.invoiceCustomer = customer;
+		this.invoiceSalesperson = salesperson;
+		this.invoiceProducts = products;
+		this.productUnits = units;
+	}
+
+	public HashMap<String, Integer> getProductUnits() {
+		return productUnits;
+	}
+
+	public void setProductUnits(HashMap<String, Integer> productUnits) {
+		this.productUnits = productUnits;
+	}
+
+	public String getInvoiceCode() {
+		return invoiceCode;
+	}
+
+	public void setInvoiceCode(String invoiceCode) {
+		this.invoiceCode = invoiceCode;
+	}
+
+	public HashMap<String, Product> getInvoiceProducts() {
+		return invoiceProducts;
+	}
+
+	public void setInvoiceProducts(HashMap<String, Product> invoiceProducts) {
+		this.invoiceProducts = invoiceProducts;
+	}
+
+	public Customer getInvoiceCustomer() {
+		return invoiceCustomer;
+	}
+
+	public void setInvoiceCustomer(Customer invoiceCustomer) {
+		this.invoiceCustomer = invoiceCustomer;
+	}
+
+	public Person getInvoiceSalesperson() {
+		return invoiceSalesperson;
+	}
+
+	public void setInvoiceSalesperson(Person invoiceSalesperson) {
+		this.invoiceSalesperson = invoiceSalesperson;
+	}
+	
+	public double getTotalCost(){
+		double sum = 0;
+		for(Entry<String, Product> product: invoiceProducts.entrySet()){
+			Product temp = product.getValue();
+			sum += temp.getTotalCost(productUnits.get(temp.getProductCode()));
+		}
+		return sum;
+	}
+	
+	public double getTotalTaxes(){
+		double tax = 0;
+		for(Entry<String, Product> product: invoiceProducts.entrySet()){
+			Product temp = product.getValue();
+			if(invoiceCustomer.getCustomerType().equals("Corporate")){
+				System.out.println(temp.getProductCode());
+				tax += temp.getTotalCost(productUnits.get(temp.getProductCode()))*temp.getTax() - temp.getTotalCost(productUnits.get(temp.getProductCode()));
+			}
+		}
+		return tax;
+	}
+	
+	public double getFee(String code){
+		if(invoiceCustomer.getCustomerType().equals("Government")){
+			return 125;
+		}
+		else{
+			return invoiceProducts.get(code).getFee();
+		}
+	}
+	
+	public double getTotalFee(){
+		int fee = 0;
+		for(Entry<String, Product> product: invoiceProducts.entrySet()){
+			String temp = product.getKey();
+			if(invoiceCustomer.getCustomerType().equals("Government")){
+				fee += 125.0;
+			}
+			else{
+				fee += this.getFee(temp);
+			}
+		}
+		return fee;
+	}
+	
+	public double complianceFee(){
+		if(invoiceCustomer.getCustomerType().equals("Government")){
+			return 0;
+		}
+		else{
+			return 125.0;
+		}
+	}
+	
+	public double getTotal(){
+		return this.getTotalFee() + this.complianceFee() + this.getTotalCost() + this.getTotalTaxes();
+	}
+}

@@ -1,0 +1,112 @@
+{
+"products": [
+  {
+    "pricePerUnit": 999999999999.99,
+    "productCode": "311i",
+    "name": "Starkiller Base"
+  },
+  {
+    "consultant": {
+      "personCode": "1r1ncss",
+      "firstName": "Leia",
+      "lastName": "Organa",
+      "address": {
+        "street": "17603 T St",
+        "city": "Omaha",
+        "state": "NE",
+        "zip": "68135",
+        "country": "USA"
+      },
+      "emails": [
+		"notacommittee@resistance.gov"
+	  ]
+    },
+    "pricePerHour": 70.0,
+    "productCode": "3040",
+    "name": "Death Star Plans"
+  },
+  {
+    "consultant": {
+      "personCode": "h3rm1t",
+      "firstName": "ObiWan",
+      "lastName": "Kenobi",
+      "address": {
+        "street": "1060 West Addison Street",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60613",
+        "country": "USA"
+      },
+      "emails": [
+        "oldben@gmail.com"
+      ]
+    },
+    "pricePerHour": 25.0,
+    "productCode": "j4c4",
+    "name": "Force Training"
+  },
+  {
+    "consultant": {
+      "personCode": "1128h",
+      "firstName": "Jessika",
+      "lastName": "Pava",
+      "address": {
+        "street": "642 Redwood Drive",
+        "city": "Passaic",
+        "state": "NJ",
+        "zip": "07055",
+        "country": "USA"
+      },
+      "emails": [
+		"2nd_daring_pilot@resistance.gov",
+		"blueleader@yahoo.com"
+	  ]
+    },
+    "pricePerHour": 8.0,
+    "productCode": "0n4s",
+    "name": "Pilot Lessons"
+  },
+  {
+    "fee": 0.0,
+    "annualCost": 35000.0,
+    "productCode": "amig",
+    "name": "Cloud City SQL Hosting"
+  },
+  {
+    "pricePerUnit": 1138.0,
+    "productCode": "cole",
+    "name": "Photon Torpedo"
+  },
+  {
+    "fee": 2000.0,
+    "annualCost": 12000.0,
+    "productCode": "yn1s",
+    "name": "Cinco Intergalactic Service"
+  },
+  {
+    "pricePerUnit": 100000.0,
+    "productCode": "m4ns",
+    "name": "Tie Fighter"
+  },
+  {
+    "pricePerUnit": 1234.99,
+    "productCode": "k3nn",
+    "name": "X-Wing Fighter"
+  },
+  {
+    "fee": 350.0,
+    "annualCost": 1200.0,
+    "productCode": "4r40",
+    "name": "Bounty Hunter Hire"
+  },
+  {
+    "pricePerUnit": 6202.0,
+    "productCode": "j0hm",
+    "name": "Astromech Droid"
+  }
+  {
+    "pricePerUnit": 6390.0,
+    "productCode": "ejkj",
+    "name": "Protocol Droid"
+  }
+]}

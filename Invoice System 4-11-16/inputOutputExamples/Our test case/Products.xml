@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<products>
+<equipment>
+  <productCode>311i</productCode>
+  <name>Starkiller Base</name>
+  <pricePerUnit>999999999999.99</pricePerUnit>
+</equipment>
+<consultation>
+  <productCode>3040</productCode>
+  <name>Death Star Plans</name>
+  <consultant>
+    <personCode>1r1ncss</personCode>
+    <firstName>Leia</firstName>
+    <lastName>Organa</lastName>
+    <address>
+      <street>17603 T St</street>
+      <city>Omaha</city>
+      <state>NE</state>
+      <zip>68135</zip>
+      <country>USA</country>
+    </address>
+	<emails>
+	  <email>notacommittee@resistance.gov</email>
+    <emails/>
+  </consultant>
+  <pricePerHour>70.0</pricePerHour>
+</consultation>
+<consultation>
+  <productCode>j4c4</productCode>
+  <name>Force Training</name>
+  <consultant>
+    <personCode>h3rm1t</personCode>
+    <firstName>ObiWan</firstName>
+    <lastName>Kenobi</lastName>
+    <address>
+      <street>1060 West Addison Street</street>
+      <city>Chicago</city>
+      <state>IL</state>
+      <zip>60613</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>oldben@gmail.com</email>
+    </emails>
+  </consultant>
+  <pricePerHour>25.0</pricePerHour>
+</consultation>
+<consultation>
+  <productCode>0n4s</productCode>
+  <name>Pilot Lessons</name>
+  <consultant>
+    <personCode>1128h</personCode>
+    <firstName>Jessika</firstName>
+    <lastName>Pava</lastName>
+    <address>
+      <street>642 Redwood Drive</street>
+      <city>Passaic</city>
+      <state>NJ</state>
+      <zip>07055</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <email>2nd_daring_pilot@resistance.gov</email>
+	  <email>blueleader@yahoo.com</email>
+    </emails>
+  </consultant>
+  <pricePerHour>8.0</pricePerHour>
+</consultation>
+<license>
+  <productCode>amig</productCode>
+  <name>Cloud City SQL Hosting</name>
+  <fee>0.0</fee>
+  <annualCost>35000.0</annualCost>
+</license>
+<equipment>
+  <productCode>cole</productCode>
+  <name>Photon Torpedo</name>
+  <pricePerUnit>1138.0</pricePerUnit>
+</equipment>
+<license>
+  <productCode>yn1s</productCode>
+  <name>Cinco Intergalactic Service</name>
+  <fee>2000.0</fee>
+  <annualCost>12000.0</annualCost>
+</license>
+<equipment>
+  <productCode>m4ns</productCode>
+  <name>Tie Fighter</name>
+  <pricePerUnit>100000.0</pricePerUnit>
+</equipment>
+<equipment>
+  <productCode>k3nn</productCode>
+  <name>X-Wing Fighter</name>
+  <pricePerUnit>1234.99</pricePerUnit>
+</equipment>
+<license>
+  <productCode>4r40</productCode>
+  <name>Bounty Hunter Hire</name>
+  <fee>350.0</fee>
+  <annualCost>1200.0</annualCost>
+</license>
+<equipment>
+  <productCode>j0hm</productCode>
+  <name>Astromech Droid</name>
+  <pricePerUnit>6202.0</pricePerUnit>
+</equipment>
+<equipment>
+  <productCode>ejkj</productCode>
+  <name>Protocol Droid</name>
+  <pricePerUnit>6390.0</pricePerUnit>
+</equipment>
+</products>

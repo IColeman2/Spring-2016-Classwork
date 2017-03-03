@@ -1,0 +1,141 @@
+<object-array>
+  <InvoiceSystem.Corporate>
+    <customerCode>C002</customerCode>
+    <customerName>Stark Industries</customerName>
+    <primaryContact>
+      <personCode>944c</personCode>
+      <firstName>Starlin</firstName>
+      <lastName>Castro</lastName>
+      <address>
+        <street>1060 West Addison Street</street>
+        <city>Chicago</city>
+        <state>IL</state>
+        <zipCode>60613</zipCode>
+        <country>USA</country>
+      </address>
+      <emailAddress>
+        <string>scastro@cubs.com,starlin_castro13@gmail.com</string>
+      </emailAddress>
+    </primaryContact>
+    <customerAddress>
+      <street>184 Marvel Way</street>
+      <city>New York</city>
+      <state>NY</state>
+      <zipCode>10453</zipCode>
+      <country>USA</country>
+    </customerAddress>
+  </InvoiceSystem.Corporate>
+  <InvoiceSystem.Government>
+    <customerCode>C001</customerCode>
+    <customerName>University of Nebraska-Lincoln</customerName>
+    <primaryContact>
+      <personCode>231</personCode>
+      <firstName>Tom</firstName>
+      <lastName>Baker</lastName>
+      <address>
+        <street>1 Blue Jays Way</street>
+        <city> Toronto</city>
+        <state> ON</state>
+        <zipCode> M5V 1J1</zipCode>
+        <country> Canada</country>
+      </address>
+      <emailAddress>
+        <string>famousdoc@who.com,tbaker@cse.unl.edu,mostfamous@whovian.com,thedoctor@bbc.com</string>
+      </emailAddress>
+    </primaryContact>
+    <customerAddress>
+      <street>259 Avery Hall</street>
+      <city>Lincoln</city>
+      <state>NE</state>
+      <zipCode>68588-0115</zipCode>
+      <country>USA</country>
+    </customerAddress>
+  </InvoiceSystem.Government>
+  <InvoiceSystem.Corporate>
+    <customerCode>C006</customerCode>
+    <customerName>Mr. Smith&apos;s #1 Supply Co. Inc.</customerName>
+    <customerAddress>
+      <street>456 West 7th St.</street>
+      <city>Omaha</city>
+      <state>NE</state>
+      <zipCode>68500</zipCode>
+      <country>USA</country>
+    </customerAddress>
+  </InvoiceSystem.Corporate>
+  <InvoiceSystem.Corporate>
+    <customerCode>C005</customerCode>
+    <customerName>Vandelay Industries</customerName>
+    <primaryContact>
+      <personCode>bbchar</personCode>
+      <firstName>Kaylee</firstName>
+      <lastName>Ehrmantraut</lastName>
+      <address>
+        <street>800 West 7th Street</street>
+        <city> Albuquerque</city>
+        <state> NM</state>
+        <zipCode> 87105</zipCode>
+        <country>USA</country>
+      </address>
+      <emailAddress/>
+    </primaryContact>
+    <customerAddress>
+      <street>1060 West Addison</street>
+      <city>Chicago</city>
+      <state>IL</state>
+      <zipCode>60601</zipCode>
+      <country>USA</country>
+    </customerAddress>
+  </InvoiceSystem.Corporate>
+  <InvoiceSystem.Government>
+    <customerCode>C004</customerCode>
+    <customerName>National Security Administration</customerName>
+    <primaryContact>
+      <personCode>321f</personCode>
+      <firstName>Bud</firstName>
+      <lastName>Fox</lastName>
+      <address>
+        <street>321 Bronx Street</street>
+        <city>New York</city>
+        <state>NY</state>
+        <zipCode>10004</zipCode>
+        <country>USA</country>
+      </address>
+      <emailAddress>
+        <string>bfox@gmail.com,csheen@crazy.net</string>
+      </emailAddress>
+    </primaryContact>
+    <customerAddress>
+      <street>9800 Savage Rd</street>
+      <city>Fort Meade</city>
+      <state>MD</state>
+      <zipCode>20755</zipCode>
+      <country>USA</country>
+    </customerAddress>
+  </InvoiceSystem.Government>
+  <InvoiceSystem.Corporate>
+    <customerCode>C003</customerCode>
+    <customerName>Venture Industries</customerName>
+    <primaryContact>
+      <personCode>306a</personCode>
+      <firstName>Brock</firstName>
+      <lastName>Sampson</lastName>
+      <address>
+        <street>123 N 1st Street</street>
+        <city>Omaha</city>
+        <state>NE</state>
+        <zipCode>68116</zipCode>
+        <country>USA</country>
+      </address>
+      <emailAddress>
+        <string>brock_f_sampson@gmail.com,bsampson@venture.com</string>
+      </emailAddress>
+    </primaryContact>
+    <customerAddress>
+      <street>123 Venture Way</street>
+      <city>Culver City</city>
+      <state>CA</state>
+      <zipCode>90230</zipCode>
+      <country>USA</country>
+    </customerAddress>
+  </InvoiceSystem.Corporate>
+</object-array>

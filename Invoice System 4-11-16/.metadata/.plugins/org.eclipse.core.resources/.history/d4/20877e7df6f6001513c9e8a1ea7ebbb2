@@ -1,0 +1,396 @@
+package InvoiceSystem;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class InvoiceSystemDriver {
+	private Connection conn;
+	private final String url = "jdbc:mysql://cse.unl.edu/cselogin";
+	private final String username = "skenny";
+	private final String password = "6tD-2P";
+	
+	public InvoiceSystemDriver(String[] main){
+		HashMap<String, Person> personsList = getPeople();
+	}
+	
+	private HashMap<String, Product> getProducts(){
+		HashMap<String, Product> productsList = new HashMap<String, Product>();
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			//products creation
+			String query = "SELECT * FROM Products";
+			PreparedStatement products = null;
+			try{
+				products = conn.prepareStatement(query);
+				
+				ResultSet rs = null;
+				try{
+					rs = products.executeQuery();
+					while(rs.next()){
+						String code = rs.getString("productCode");
+						String name = rs.getString("productName");
+						String type = rs.getString("productType");
+						int productKey = rs.getInt("productId");
+						
+						//equipment
+						if(type.equals("equipment")){
+							double unitCost = 0;
+							String equipmentQuery = "SELECT unitCost FROM ProductsInInvoices WHERE productId = " + productKey ;
+							PreparedStatement equipmentStatement = null;
+							try{
+								equipmentStatement = conn.prepareStatement(equipmentQuery);
+								
+								ResultSet rs2 = null;
+								try{
+									rs2 = equipmentStatement.executeQuery();
+									while(rs2.next()){
+										unitCost = rs2.getDouble("unitCost");
+									}
+								}
+								catch(SQLException e){
+									System.out.println("Incorrect username or password");
+								}
+							}
+							catch(SQLException e){
+								System.out.println("Incorrect username or password");
+							}
+							productsList.put(code, new Equipment(code, name, unitCost));
+						}
+						
+						//consultations
+						if(type.equals("consultation")){
+							double perHourCost = 0;
+							Person salesPerson = null;
+							String consultationQuery = "SELECT * FROM ProductsInInvoices WHERE productId = " + productKey ;
+							PreparedStatement consultationStatement = null;
+							try{
+								consultationStatement = conn.prepareStatement(consultationQuery);
+								
+								ResultSet rs2 = null;
+								try{
+									rs2 = consultationStatement.executeQuery();
+									while(rs2.next()){
+										perHourCost = rs2.getDouble("perHourCost");
+										int invoiceKey = rs2.getInt("invoiceId");
+										String invoiceQuery = "SELECT invoiceSalesperson FROM Invoices WHERE invoiceId = " + invoiceKey ;
+										PreparedStatement invoiceStatement = null;
+										try{
+											invoiceStatement = conn.prepareStatement(invoiceQuery);
+											
+											ResultSet rs3 = null;
+											try{
+												rs3 = invoiceStatement.executeQuery();
+												while(rs3.next()){
+													int salesId = rs3.getInt("invoiceSalesPerson");
+													String personQuery = "SELECT * FROM Persons WHERE personId = " + salesId;
+													PreparedStatement personStatement = null;
+													try{
+														personStatement = conn.prepareStatement(personQuery);
+														
+														ResultSet rs4 = null;
+														try{
+															rs4 = personStatement.executeQuery();
+															while(rs4.next()){
+
+																String personCode = rs.getString("personCode");
+																String firstName = rs.getString("firstName");
+																String lastName = rs.getString("lastName");
+																Integer addressKey = rs.getInt("addressId");
+																String query2 = "SELECT * FROM Adresses WHERE addressId = " + addressKey;
+																PreparedStatement address = null;
+																Address add = null;
+																
+																//get address
+																try{
+																	address = conn.prepareStatement(query2);
+																	ResultSet rs5 = null;
+																	try{
+																		rs5 = address.executeQuery();
+																		while(rs5.next()){
+																			String street = rs5.getString("street");
+																			String city = rs5.getString("city");
+																			String state = null;
+																			Integer stateKey = rs5.getInt("state");
+																			String zip = rs5.getString("zipCode");
+																			String country = null;
+																			Integer countryKey = rs5.getInt("country");
+																			
+																			String countryQuery = "Select countryName FROM Countries WHERE countryId = " + countryKey;
+																			PreparedStatement countryStatement = null;
+																			try{
+																				countryStatement = conn.prepareStatement(countryQuery);
+																				ResultSet rs6 = null;
+																				try{
+																					rs6 = countryStatement.executeQuery();
+																					while(rs6.next()){
+																						country = rs6.getString("countryName");
+																					}
+																				}
+																				catch(SQLException e){
+																					System.out.println("Incorrect username or password");
+																				}
+																			}
+																			catch(SQLException e){
+																				System.out.println("Incorrect username or password");
+																			}
+																			
+																			String stateQuery = "Select stateName FROM States WHERE stateId = " + stateKey;
+																			PreparedStatement stateStatement = null;
+																			try{
+																				stateStatement = conn.prepareStatement(stateQuery);
+																				ResultSet rs6 = null;
+																				try{
+																					rs6 = stateStatement.executeQuery();
+																					while(rs6.next()){
+																						state = rs6.getString("stateName");
+																					}
+																				}
+																				catch(SQLException e){
+																					System.out.println("Incorrect username or password");
+																				}
+																			}
+																			catch(SQLException e){
+																				System.out.println("Incorrect username or password");
+																			}
+																			
+																			add = new Address(street, city, state, zip, country);
+																		}
+																		
+																		
+																	}
+																	catch(SQLException e){
+																		System.out.println("Incorrect username or password");
+																	}
+																	
+																}
+																catch(SQLException e){
+																	System.out.println("Incorrect username or password");
+																}
+																
+																int personKey = rs.getInt("personId");
+																ArrayList<String> emails = new ArrayList<String>();
+																
+																//gets emailAddresses
+																String emailQuery = "Select emailAddress FROM Emails WHERE personId = " + personKey;
+																PreparedStatement emailStatement = null;
+																try{
+																	emailStatement = conn.prepareStatement(emailQuery);
+																	ResultSet rs5 = null;
+																	try{
+																		rs5 = emailStatement.executeQuery();
+																		while(rs5.next()){
+																			emails.add(rs5.getString("emailAddress"));
+																		}
+																	}
+																	catch(SQLException e){
+																		System.out.println("Incorrect username or password");
+																	}
+																}
+																catch(SQLException e){
+																	System.out.println("Incorrect username or password");
+																}
+																
+																salesPerson = new Person(personCode, firstName, lastName, add, emails);
+															}
+														}
+														catch(SQLException e){
+															System.out.println("Incorrect username or password");
+														}
+												}
+													catch(SQLException e){
+														System.out.println("Incorrect username or password");
+													}
+									}
+								}
+								catch(SQLException e){
+									System.out.println("Incorrect username or password");
+								}
+							}
+							catch(SQLException e){
+								System.out.println("Incorrect username or password");
+							}
+							
+							productsList.put(code, new Consultation(code, name, perHourCost, salesPerson));
+						}
+								}
+								catch(SQLException e){
+									System.out.println("Incorrect username or password");
+								}
+							}
+							catch(SQLException e){
+								System.out.println("Incorrect username or password");
+							}
+						}
+						if(type.equals("license")){
+							double annualServiceFee = 0;
+						    double flatServiceFee = 0;
+						    String licenseQuery = "SELECT * FROM ProductsInInvoices WHERE productId = " + productKey ;
+							PreparedStatement licenseStatement = null;
+							try{
+								licenseStatement = conn.prepareStatement(licenseQuery);
+								
+								ResultSet rs2 = null;
+								try{
+									rs2 = licenseStatement.executeQuery();
+									while(rs2.next()){
+										annualServiceFee = rs2.getDouble("annualServiceFee");
+										flatServiceFee = rs2.getDouble("flatServiceFee");
+									}
+								}
+								catch(SQLException e){
+									System.out.println("Incorrect username or password");
+								}
+							}
+							catch(SQLException e){
+								System.out.println("Incorrect username or password");
+							}
+							productsList.put(code, new License(code, name, flatServiceFee, annualServiceFee));
+						}
+					}
+				}
+				catch(SQLException e){
+					System.out.println("Incorrect username or password");
+				}
+			}
+			catch(SQLException e){
+				System.out.println("Incorrect username or password");
+			}
+		}
+		catch(SQLException e){
+			System.out.println("Incorrect username or password");
+		}
+		
+		return productsList;
+	}
+	
+	private HashMap<String, Person> getPeople(){
+		HashMap<String, Person> personsList= new HashMap<String, Person>();
+		try{
+			conn = DriverManager.getConnection(url, username, password);
+			//persons creation
+			String query = "SELECT * FROM Persons";
+			PreparedStatement person = null;
+			try{
+				person = conn.prepareStatement(query);
+				
+				ResultSet rs = null;
+				try{
+					rs = person.executeQuery();
+					while(rs.next()){
+						String code = rs.getString("personCode");
+						String firstName = rs.getString("firstName");
+						String lastName = rs.getString("lastName");
+						Integer addressKey = rs.getInt("addressId");
+						String query2 = "SELECT * FROM Adresses WHERE addressId = " + addressKey;
+						PreparedStatement address = null;
+						Address add = null;
+						
+						//get address
+						try{
+							address = conn.prepareStatement(query2);
+							ResultSet rs2 = null;
+							try{
+								rs2 = address.executeQuery();
+								while(rs2.next()){
+									String street = rs2.getString("street");
+									String city = rs2.getString("city");
+									String state = null;
+									Integer stateKey = rs2.getInt("state");
+									String zip = rs2.getString("zipCode");
+									String country = null;
+									Integer countryKey = rs2.getInt("country");
+									
+									String countryQuery = "Select countryName FROM Countries WHERE countryId = " + countryKey;
+									PreparedStatement countryStatement = null;
+									try{
+										countryStatement = conn.prepareStatement(countryQuery);
+										ResultSet rs3 = null;
+										try{
+											rs3 = countryStatement.executeQuery();
+											while(rs3.next()){
+												country = rs3.getString("countryName");
+											}
+										}
+										catch(SQLException e){
+											System.out.println("Incorrect username or password");
+										}
+									}
+									catch(SQLException e){
+										System.out.println("Incorrect username or password");
+									}
+									
+									String stateQuery = "Select stateName FROM States WHERE stateId = " + stateKey;
+									PreparedStatement stateStatement = null;
+									try{
+										stateStatement = conn.prepareStatement(stateQuery);
+										ResultSet rs3 = null;
+										try{
+											rs3 = stateStatement.executeQuery();
+											while(rs3.next()){
+												state = rs3.getString("stateName");
+											}
+										}
+										catch(SQLException e){
+											System.out.println("Incorrect username or password");
+										}
+									}
+									catch(SQLException e){
+										System.out.println("Incorrect username or password");
+									}
+									
+									add = new Address(street, city, state, zip, country);
+								}
+								
+								
+							}
+							catch(SQLException e){
+								System.out.println("Incorrect username or password");
+							}
+							
+						}
+						catch(SQLException e){
+							System.out.println("Incorrect username or password");
+						}
+						
+						int personKey = rs.getInt("personId");
+						ArrayList<String> emails = new ArrayList<String>();
+						
+						//gets emailAddresses
+						String emailQuery = "Select emailAddress FROM Emails WHERE personId = " + personKey;
+						PreparedStatement emailStatement = null;
+						try{
+							emailStatement = conn.prepareStatement(emailQuery);
+							ResultSet rs3 = null;
+							try{
+								rs3 = emailStatement.executeQuery();
+								while(rs3.next()){
+									emails.add(rs3.getString("emailAddress"));
+								}
+							}
+							catch(SQLException e){
+								System.out.println("Incorrect username or password");
+							}
+						}
+						catch(SQLException e){
+							System.out.println("Incorrect username or password");
+						}
+						
+						personsList.put(code, new Person(code, firstName, lastName, add, emails));
+					}
+				}
+				catch(SQLException e){
+					System.out.println("Incorrect Query");
+				}
+			}
+			catch(SQLException e){
+				System.out.println("Incorrect Query");
+			}
+		
+	}
+	catch(SQLException e){
+		System.out.println("Incorrect username or password");
+	}
+		return personsList;
+	}
+	
+}

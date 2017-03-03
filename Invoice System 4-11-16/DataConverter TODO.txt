@@ -1,0 +1,18 @@
+TODO:
+-Comment shit
+-Consider changing the nature of the Email Address class in Person
+
+ONCE ALL THIS IS DONE, REMAKE THE ZIP AND JAR FILES AND UPLOAD THEM TO WEBGRADER
+
+DONE:
+-Find out why persons.JSON is straight fucked
+-persons.XML is also straight fucked
+-Create two customer subclasses, governmentCustomer and companyCustomer
+-remove the "government" boolean
+-figure out why customers.JSON doesn't include E-mails
+-Make products.XML print the person file for consultants
+-make perons.JSON print the person file for the consultants
+-ask Nisha why customers.XML and customers.JSON prints the customer code randomly at the top
+-consider making changes to make our products.JSON formatted more like theirs (probably not necessary)
+-products.XML is also randomly printing the customer code in front of everything else
+-So is products.JSON

@@ -1,0 +1,35 @@
+Wolfenstein: The New Order,Bethesda,2014,Xbox 360
+Wolfenstein: The New Order,Bethesda,2014,PlayStation 3
+Wolfenstein: The New Order,Bethesda,2014,PC
+Wolfenstein: The New Order,Bethesda,2014,Mac
+Wolfenstein: The New Order,Bethesda,2014,PlayStation 4
+Wolfenstein: The New Order,Bethesda,2014,Xbox One
+Ziggurat,Milkstone Studios,2014,PC
+Ziggurat,Milkstone Studios,2015,Xbox One
+Ziggurat,Milkstone Studios,2015,PlayStation 4
+The Stanley Parable,Davey Wreden,2013,PC
+The Beginner's Guide,Davey Wreden,2015,PC
+Fallout 4,Bethesda,2015,PC
+Fallout 4,Bethesda,2015,PlayStation 4
+Fallout 4,Bethesday,2015,Xbox One
+,Konami,,
+LISA: The Painful RPG,Dingaling Games,2014,PC
+LISA: The Joyful,Dingaling Games,2015,PC
+,Warner Bros.,,
+,EA,,
+Undertale,Toby Fox,2015,PC
+,3D Realms,,
+Deadly Premonition,Rising Star Games,2010,PlayStation 3
+Deadly Premonition,Rising Star Games,2010,Xbox 360
+Deadly Premonition,Rising Star Games,2013,PC
+Rise of the Triad,Apogee,,
+DOOM 3:BFG Edition,Bethesda,,
+,Nintendo,,
+,Sony,,
+,Microsoft,,
+DOOM II: Hell on Earth,iD Software,,
+DOOM,iD Software,1993,PC
+Final DOOM,iD Software,,
+Pony island,Daniel Mullins Games,2016,PC
+Dota 2,Valve,2012,PC
+,Ubisoft,,
