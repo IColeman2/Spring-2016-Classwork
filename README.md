@@ -1,0 +1,2 @@
+# Spring-2016-Classwork
+This is a complete collection of the code I wrote for various computer science courses in the Spring of 2016 (my Freshman year of college.) Presented here to give potential employers an example of my coding ability. The main project here is the large "DataConverter" program, whose purpose is described in the included Design Document. All code in this repository is copyright Isaac "I" Coleman 2016-2017.
